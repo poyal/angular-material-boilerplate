@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+    background-color: lightgrey;
+}
+
+.sidenav md-sidenav {
+    max-width: 250px;
+}
+
+.sidenav .profile-details {
+    margin: 10px 0 10px 0;
+}
+
+@media (min-width: 600px) {
+    .sidenav .sidenav-profile {
+        margin-top: 10px;
+    }
+}
+
+.sidenav .menu-items .selected {
+    color: #03a9f4;
+}
