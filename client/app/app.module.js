@@ -7,7 +7,7 @@
     'ngMaterial',
     'app.core',
     // 'app.templates',
-    'app.main',
-    'app.test'
+    'app.dashboard',
+    'app.examples'
   ]);
 })();
