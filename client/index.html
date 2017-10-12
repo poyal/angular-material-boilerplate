@@ -6,16 +6,16 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Test App</title>
-  <!-- build:css css/bootstrap.css -->
+  <!-- build:css css/dist.css -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/material-dashboard.css?v=1.2.0">
+  <link rel="stylesheet" href="css/material-dashboard.css">
   <!--<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">-->
   <link rel="stylesheet" href="css/develop.css"/>
   <link rel="stylesheet" href="css/demo.css">
-  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css">
   <!-- endbuild -->
 
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 </head>
 <body ng-cloak layout="column">
 <div ui-view></div>
@@ -26,9 +26,6 @@
 <script src="bower_components/chartist/dist/chartist.min.js"></script>
 <script src="bower_components/arrive/minified/arrive.min.js"></script>
 <script src="js/material.min.js"></script>
-<script src="js/material-dashboard.js?v=1.2.0"></script>
-<script src="js/demo.js"></script>
-
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>
@@ -37,14 +34,17 @@
 <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="bower_components/angular-material/angular-material.min.js"></script>
 <script src="bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+<script src="js/material-dashboard.js"></script>
+<script src="js/demo.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/app.js -->
 <!-- inject:js -->
 <script src="app/app.module.js"></script>
+<script src="app/templates.module.js"></script>
 <script src="app/core/core.module.js"></script>
-<script src="app/dashboard/dashboard.module.js"></script>
 <script src="app/examples/examples.module.js"></script>
+<script src="app/dashboard/dashboard.module.js"></script>
 <script src="app/core/app.config.js"></script>
 <script src="app/core/app.constant.js"></script>
 <script src="app/core/config.route.js"></script>
@@ -54,8 +54,8 @@
 <script src="app/examples/icons/icons.controller.js"></script>
 <script src="app/examples/notifications/notifications.controller.js"></script>
 <script src="app/examples/profile/profile.controller.js"></script>
-<script src="app/examples/table/table.controller.js"></script>
 <script src="app/examples/typography/typography.controller.js"></script>
+<script src="app/examples/table/table.controller.js"></script>
 <!-- endinject -->
 <!-- endbuild -->
 

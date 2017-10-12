@@ -53,6 +53,12 @@ gulp.task('copy', function () {
     .pipe(gulp.dest(config.dist + '/'));
 });
 
+gulp.task('icons', function() {
+  return gulp
+    .src(config.fontAwesomeAssets)
+    .pipe(gulp.dest(config.fontAwesomeBase));
+});
+
 gulp.task('optimize', ['jsLint', 'inject'], function () {
   var options = {
     // preserveComments: 'license',
@@ -75,7 +81,7 @@ gulp.task('dev', ['inject-dev', 'jsLint'], function () {
   startBrowserSync('dev');
 });
 
-gulp.task('build', ['optimize', 'copy'], function () {
+gulp.task('build', ['optimize', 'copy', 'icons'], function () {
   startBrowserSync('build');
 });
 
