@@ -5,6 +5,7 @@
     'ui.router',
     'ngAria',
     'ngMaterial',
+    'ui-notification',
     'app.core',
     // 'app.templates',
     'app.dashboard',

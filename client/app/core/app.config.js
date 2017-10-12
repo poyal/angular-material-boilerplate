@@ -3,20 +3,22 @@
 
   angular.module('app')
     .run(appRun)
-    .config(['$mdThemingProvider', appConfig])
-    .constant('API', {
-      url: 'NONE'
-    });
+    .config(['NotificationProvider', appConfig]);
 
   function appRun() {
 
   }
 
-  function appConfig($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-      .primaryPalette('indigo')
-      .accentPalette('purple', {
-        'default': '200'
-      });
+  function appConfig(NotificationProvider) {
+    NotificationProvider.setOptions({
+      startTop: 20,
+      startRight: 10,
+      verticalSpacing: 20,
+      horizontalSpacing: 20,
+      positionX: 'right',   //"right", "left", "center"
+      positionY: 'bottom',  //"top", "bottom"
+      closeOnClick: true,   //클릭닫기 flag
+      maxCount: 3           //숫자, null
+    });
   }
 })();
