@@ -4,6 +4,7 @@
   angular.module('app', [
     'ui.router',
     'ngAria',
+    'ngSanitize',
     'ngMaterial',
     'ui-notification',
     'app.core',
