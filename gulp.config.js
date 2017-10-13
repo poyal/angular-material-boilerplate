@@ -9,8 +9,6 @@ module.exports = function () {
     dist: dist,
     publish: publish,
     index: client + "/index.html",
-    fontAwesomeAssets: [client + '/bower_components/components-font-awesome/fonts/*'],
-    fontAwesomeBase: dist + '/fonts',
     alljs: [
       client + '/app/**/*.js',
       '!./client/bower_components/**'
