@@ -23,8 +23,20 @@ module.exports = function () {
       client + "/app/**/*.html"
     ],
     assets: [
-      client + "/img/**/*"
-    ]
+      client + "/assets/**/*"
+    ],
+    wiredep: {
+      exclude: [/\/bootstrap\.js$/, /\/bootstrap-sass\/.*\.js/, /\/require\.js/],
+      directory: 'bower_components'
+    },
+    errorHandler: function(title) {
+      'use strict';
+
+      return function (err) {
+        gutil.log(gutil.colors.red('[' + title + ']'), err.toString());
+        this.emit('end');
+      }
+    }
   };
 
   return config;

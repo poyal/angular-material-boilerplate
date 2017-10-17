@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -13,19 +10,27 @@
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-angular-templatecache": "^2.0.0",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-if": "^2.0.2",
     "gulp-inject": "^4.2.0",
     "gulp-jshint": "^2.0.4",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-string-replace": "^0.4.0",
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.2",
     "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
     "map-stream": "0.0.7"
   },
   "devDependencies": {
     "jshint": "^2.9.5",
     "run-sequence": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   }
 }

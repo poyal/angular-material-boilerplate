@@ -6,6 +6,7 @@ var map = require('map-stream');
 var browserSync = require('browser-sync');
 var config = require('./gulp.config')();
 var $ = require('gulp-load-plugins')();
+var _ = require('lodash');
 
 /** task */
 gulp.task('jsLint', function () {
@@ -71,11 +72,11 @@ gulp.task('optimize', ['jsLint', 'inject'], function () {
     .pipe(gulp.dest(config.dist));
 });
 
-gulp.task('dev', ['inject-dev', 'jsLint'], function () {
+gulp.task('dev', ['inject-dev', 'styles', 'jsLint'], function () {
   startBrowserSync('dev');
 });
 
-gulp.task('build', ['optimize', 'copy'], function () {
+gulp.task('build', ['optimize', 'styles', 'copy'], function () {
   startBrowserSync('build');
 });
 
@@ -172,3 +173,61 @@ var reporter = map(function (file, cb) {
 
   cb(null, file);
 });
+
+gulp.task('styles', ['stylesMain', 'stylesAuth', 'styles404'], function () {
+});
+
+gulp.task('stylesMain', function () {
+  return buildStyles();
+});
+
+gulp.task('stylesAuth', function () {
+  return buildSingleScss('client/sass/auth.scss');
+});
+gulp.task('styles404', function () {
+  return buildSingleScss('client/sass/404.scss');
+});
+
+var buildStyles = function () {
+  var sassOptions = {
+    style: 'expanded'
+  };
+
+  var injectFiles = gulp.src([
+    'client/sass/**/_*.scss',
+    '!client/sass/theme/conf/**/*.scss',
+    '!client/sass/404.scss',
+    '!client/sass/auth.scss'
+  ], {read: false});
+
+  var injectOptions = {
+    transform: function (filePath) {
+      filePath = filePath.replace('client/sass/', '');
+      return '@import "' + filePath + '";';
+    },
+    starttag: '// injector',
+    endtag: '// endinjector',
+    addRootSlash: false
+  };
+
+  return gulp.src([
+    'client/sass/main.scss'
+  ])
+    .pipe($.inject(injectFiles, injectOptions))
+    .pipe($.sourcemaps.init())
+    .pipe($.sass(sassOptions)).on('error', config.errorHandler('Sass'))
+    .pipe($.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('client/css/'));
+};
+
+var buildSingleScss = function (paths) {
+  var sassOptions = {
+    style: 'expanded'
+  };
+
+  return gulp.src([paths])
+    .pipe($.sass(sassOptions)).on('error', config.errorHandler('Sass'))
+    .pipe($.autoprefixer()).on('error', config.errorHandler('Autoprefixer'))
+    .pipe(gulp.dest('client/css/'));
+};
