@@ -12,9 +12,9 @@
   function MapBubblePageCtrl(baConfig, $timeout, layoutPaths) {
     var layoutColors = baConfig.colors;
     var latlong = {};
-    latlong['AD'] = {'latitude': 42.5, 'longitude': 1.5};
-    latlong['AE'] = {'latitude': 24, 'longitude': 54};
-    latlong['AF'] = {'latitude': 33, 'longitude': 65};
+    latlong.AD = {'latitude': 42.5, 'longitude': 1.5};
+    latlong.AE = {'latitude': 24, 'longitude': 54};
+    latlong.AF = {'latitude': 33, 'longitude': 65};
 
 
     var mapData = [
@@ -196,13 +196,13 @@
     var max = -Infinity;
 
     // get min and max values
-    for (var i = 0; i < mapData.length; i++) {
-      var value = mapData[i].value;
-      if (value < min) {
-        min = value;
+    for (var cnt = 0; cnt < mapData.length; cnt++) {
+      var item = mapData[cnt].value;
+      if (item < min) {
+        min = item;
       }
-      if (value > max) {
-        max = value;
+      if (item > max) {
+        max = item;
       }
     }
 

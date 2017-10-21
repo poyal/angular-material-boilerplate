@@ -1,24 +1,22 @@
-/**
- * @author v.lugovksy
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .directive('contentTop', contentTop);
+    .directive('contentTop', ContentTopDirective);
 
-  /** @ngInject */
-  function contentTop($location, $state) {
+  ContentTopDirective.$inject = ['$state'];
+
+  function ContentTopDirective($state) {
     return {
       restrict: 'E',
       templateUrl: 'app/core/components/contentTop/contentTop.html',
-      link: function ($scope) {
-        $scope.$watch(function () {
-          $scope.activePageTitle = $state.current.title;
-        });
-      }
+      link: ContentTopLink
     };
-  }
 
+    function ContentTopLink(scope) {
+      scope.$watch(function () {
+        scope.activePageTitle = $state.current.title;
+      });
+    }
+  }
 })();

@@ -1,15 +1,14 @@
-/**
- * @author v.lugovsky
- * created on 15.01.2016
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .service('baPanelBlurHelper', baPanelBlurHelper);
+    .service('baPanelBlurHelper', BaPanelBlurHelperService);
 
-  /** @ngInject */
-  function baPanelBlurHelper($q) {
+  BaPanelBlurHelperService.$inject = ['$q'];
+
+  function BaPanelBlurHelperService($q) {
+    var service = this;
+
     var res = $q.defer();
     var computedStyle = getComputedStyle(document.body, ':before');
     var image = new Image();
@@ -21,11 +20,11 @@
       res.resolve();
     };
 
-    this.bodyBgLoad = function () {
+    function bodyBgLoad() {
       return res.promise;
-    };
+    }
 
-    this.getBodyBgImageSizes = function () {
+    function getBodyBgImageSizes() {
       var elemW = document.documentElement.clientWidth;
       var elemH = document.documentElement.clientHeight;
       if (elemW <= 640) return;
@@ -46,7 +45,11 @@
         positionX: (elemW - finalWidth) / 2,
         positionY: (elemH - finalHeight) / 2
       };
-    };
+    }
+
+    service.bodyBgLoad = bodyBgLoad;
+    service.getBodyBgImageSizes = getBodyBgImageSizes;
   }
 
 })();
+

@@ -1,18 +1,13 @@
-/**
- * @author v.lugovsky
- * created on 23.12.2015
- */
 (function () {
   'use strict';
 
-  /**
-   * Includes basic panel layout inside of current element.
-   */
   angular.module('app.core')
-    .directive('baPanel', baPanel);
+    .directive('baPanel', BaPanelDirective);
 
-  /** @ngInject */
-  function baPanel(baPanel, baConfig) {
+  BaPanelDirective.$inject = ['baPanel', 'baConfig'];
+
+  /* @ngInject */
+  function BaPanelDirective(baPanel, baConfig) {
     return angular.extend({}, baPanel, {
       template: function (el, attrs) {
         var res = '<div  class="panel ' + (baConfig.theme.blur ? 'panel-blur' : '') + ' full-invisible ' + (attrs.baPanelClass || '');
@@ -24,3 +19,4 @@
     });
   }
 })();
+

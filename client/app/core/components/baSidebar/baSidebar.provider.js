@@ -2,10 +2,9 @@
   'use strict';
 
   angular.module('app.core')
-    .provider('baSidebarService', baSidebarServiceProvider);
+    .provider('baSidebarService', BaSidebarServiceProvider);
 
-  /** @ngInject */
-  function baSidebarServiceProvider() {
+  function BaSidebarServiceProvider() {
     var staticMenuItems = [];
 
     this.addStaticItem = function () {

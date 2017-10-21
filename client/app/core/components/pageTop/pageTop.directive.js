@@ -1,19 +1,16 @@
-/**
- * @author v.lugovksy
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .directive('pageTop', pageTop);
+    .directive('pageTop', PageTopDirective);
 
-  /** @ngInject */
-  function pageTop() {
+  PageTopDirective.$inject = [];
+
+  /* @ngInject */
+  function PageTopDirective() {
     return {
       restrict: 'E',
       templateUrl: 'app/core/components/pageTop/pageTop.html'
     };
   }
-
 })();

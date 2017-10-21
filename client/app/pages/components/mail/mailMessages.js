@@ -230,19 +230,19 @@
 
     return{
       getTabs : function(){
-        return tabs
+        return tabs;
       },
       getMessagesByLabel : function(label){
         return messages.filter(function(m){
-          return m.labels.indexOf(label) != -1;
+          return m.labels.indexOf(label) !== -1;
         });
       },
       getMessageById : function(id){
         return messages.filter(function(m){
-          return m.id == id;
+          return m.id === id;
         })[0];
       }
-    }
+    };
 
   }
 

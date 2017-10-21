@@ -1,24 +1,20 @@
-/**
- * Created by k.danovsky on 12.05.2016.
- */
-
 (function () {
   'use strict';
 
-  angular.module('app.core')
-    .service('themeLayoutSettings', themeLayoutSettings);
+  angular
+    .module('app.core')
+    .service('themeLayoutSettings', ThemeLayoutSettingsService);
 
-  /** @ngInject */
-  function themeLayoutSettings(baConfig) {
+  ThemeLayoutSettingsService.$inject = ['baConfig'];
+
+  function ThemeLayoutSettingsService(baConfig) {
+    var service = this;
     var isMobile = (/android|webos|iphone|ipad|ipod|blackberry|windows phone/).test(navigator.userAgent.toLowerCase());
     var mobileClass = isMobile ? 'mobile' : '';
     var blurClass = baConfig.theme.blur ? 'blur-theme' : '';
     angular.element(document.body).addClass(mobileClass).addClass(blurClass);
 
-    return {
-      blur: baConfig.theme.blur,
-      mobile: isMobile
-    }
+    service.blur = baConfig.theme.blur;
+    service.mobile = isMobile;
   }
-
 })();

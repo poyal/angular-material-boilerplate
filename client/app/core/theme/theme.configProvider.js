@@ -31,7 +31,7 @@
   };
 
   angular.module('app.core')
-    .provider('baConfig', configProvider);
+    .provider('baConfig', ['colorHelper', configProvider]);
 
   /** @ngInject */
   function configProvider(colorHelper) {
@@ -74,11 +74,11 @@
     };
 
     conf.changeTheme = function (theme) {
-      angular.merge(conf.theme, theme)
+      angular.merge(conf.theme, theme);
     };
 
     conf.changeColors = function (colors) {
-      angular.merge(conf.colors, colors)
+      angular.merge(conf.colors, colors);
     };
 
     conf.$get = function () {

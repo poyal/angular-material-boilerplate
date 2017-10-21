@@ -18,7 +18,7 @@
         subject : subject,
         to: to,
         text: text
-      })
+      });
     };
 
     vm.tabs = mailMessages.getTabs();

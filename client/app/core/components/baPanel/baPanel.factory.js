@@ -1,17 +1,12 @@
-/**
- * @author v.lugovsky
- * created on 23.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .factory('baPanel', baPanel);
+    .factory('baPanel', BaPanelFactory);
 
-  /** @ngInject */
-  function baPanel() {
+  BaPanelFactory.$inject = [];
 
-    /** Base baPanel directive */
+  function BaPanelFactory() {
     return {
       restrict: 'A',
       transclude: true,
@@ -19,12 +14,11 @@
         var res = '<div class="panel-body" ng-transclude></div>';
         if (attrs.baPanelTitle) {
           var titleTpl = '<div class="panel-heading clearfix"><h3 class="panel-title">' + attrs.baPanelTitle + '</h3></div>';
-          res = titleTpl + res; // title should be before
+          res = titleTpl + res;
         }
 
         return res;
       }
     };
   }
-
 })();

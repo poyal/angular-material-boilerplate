@@ -7,7 +7,7 @@
   'use strict';
 
   angular.module('app.pages.form')
-      .directive('selectpicker', selectpicker);
+    .directive('selectpicker', selectpicker);
 
   /** @ngInject */
   function selectpicker() {
@@ -16,10 +16,10 @@
       require: '?ngOptions',
       priority: 1500, // make priority bigger than ngOptions and ngRepeat
       link: {
-        pre: function(scope, elem, attrs) {
-          elem.append('<option data-hidden="true" disabled value="">' + (attrs.title || 'Select something') + '</option>')
+        pre: function (scope, elem, attrs) {
+          elem.append('<option data-hidden="true" disabled value="">' + (attrs.title || 'Select something') + '</option>');
         },
-        post: function(scope, elem, attrs) {
+        post: function (scope, elem, attrs) {
           function refresh() {
             elem.selectpicker('refresh');
           }
@@ -32,7 +32,7 @@
             scope.$watch(attrs.ngDisabled, refresh);
           }
 
-          elem.selectpicker({ dropupAuto: false, hideDisabled: true });
+          elem.selectpicker({dropupAuto: false, hideDisabled: true});
         }
       }
     };

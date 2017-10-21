@@ -1,15 +1,13 @@
-/**
- * @author v.lugovsky
- * created on 15.01.2016
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .directive('baPanelBlur', baPanelBlur);
+    .directive('baPanelBlur', BaPanelBlurDirective);
 
-  /** @ngInject */
-  function baPanelBlur(baPanelBlurHelper, $window, $rootScope) {
+  BaPanelBlurDirective.$inject = ['baPanelBlurHelper', '$window', '$rootScope'];
+
+  /* @ngInject */
+  function BaPanelBlurDirective(baPanelBlurHelper, $window, $rootScope) {
     var bodyBgSize;
 
     baPanelBlurHelper.bodyBgLoad().then(function () {
@@ -22,30 +20,30 @@
 
     return {
       restrict: 'A',
-      link: function ($scope, elem) {
-        if (!$rootScope.$isMobile) {
-          baPanelBlurHelper.bodyBgLoad().then(function () {
-            setTimeout(recalculatePanelStyle);
-          });
-          $window.addEventListener('resize', recalculatePanelStyle);
-
-          $scope.$on('$destroy', function () {
-            $window.removeEventListener('resize', recalculatePanelStyle);
-          });
-        }
-
-        function recalculatePanelStyle() {
-          if (!bodyBgSize) {
-            return;
-          }
-          elem.css({
-            backgroundSize: Math.round(bodyBgSize.width) + 'px ' + Math.round(bodyBgSize.height) + 'px',
-            backgroundPosition: Math.floor(bodyBgSize.positionX) + 'px ' + Math.floor(bodyBgSize.positionY) + 'px'
-          });
-        }
-
-      }
+      link: DaPanelBlurLink
     };
-  }
 
+    function DaPanelBlurLink(scope, elem) {
+      if (!$rootScope.$isMobile) {
+        baPanelBlurHelper.bodyBgLoad().then(function () {
+          setTimeout(recalculatePanelStyle);
+        });
+        $window.addEventListener('resize', recalculatePanelStyle);
+
+        scope.$on('$destroy', function () {
+          $window.removeEventListener('resize', recalculatePanelStyle);
+        });
+      }
+
+      function recalculatePanelStyle() {
+        if (!bodyBgSize) {
+          return;
+        }
+        elem.css({
+          backgroundSize: Math.round(bodyBgSize.width) + 'px ' + Math.round(bodyBgSize.height) + 'px',
+          backgroundPosition: Math.floor(bodyBgSize.positionX) + 'px ' + Math.floor(bodyBgSize.positionY) + 'px'
+        });
+      }
+    }
+  }
 })();

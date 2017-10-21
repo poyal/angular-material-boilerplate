@@ -1,15 +1,12 @@
-/**
- * @author v.lugovsky
- * created on 10.12.2016
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .directive('baSwitcher', baSwitcher);
+    .directive('baSwitcher', BaSwitcherDirective);
 
-  /** @ngInject */
-  function baSwitcher() {
+  BaSwitcherDirective.$inject = [];
+
+  function BaSwitcherDirective() {
     return {
       templateUrl: 'app/core/components/baSwitcher/baSwitcher.html',
       scope: {
@@ -19,3 +16,4 @@
     };
   }
 })();
+

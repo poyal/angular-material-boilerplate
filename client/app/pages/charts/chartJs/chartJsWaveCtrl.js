@@ -23,7 +23,7 @@
       }
       tempArray[0] = lastElement;
       $scope.data = tempArray;
-    }, 400)
+    }, 400);
   }
 
 })();

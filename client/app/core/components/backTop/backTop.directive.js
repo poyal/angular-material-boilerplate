@@ -1,25 +1,25 @@
-/**
- * @author v.lugovksy
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .directive('backTop', backTop);
+    .directive('backTop', BackTopDirective);
 
-  /** @ngInject */
-  function backTop() {
+  BackTopDirective.$inject = [];
+
+  function BackTopDirective() {
     return {
       restrict: 'E',
       templateUrl: 'app/core/components/backTop/backTop.html',
-      controller: function () {
-        $('#backTop').backTop({
-          'position': 200,
-          'speed': 100
-        });
-      }
+      controller: BackTopController
     };
   }
 
+  BackTopController.$inject = [];
+
+  function BackTopController() {
+    $('#backTop').backTop({
+      'position': 200,
+      'speed': 100
+    });
+  }
 })();

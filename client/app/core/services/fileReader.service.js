@@ -1,15 +1,16 @@
-/**
- * @author v.lugovksy
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.core')
-    .service('fileReader', fileReader);
+    .service('fileReader', FileReaderService);
 
-  /** @ngInject */
-  function fileReader($q) {
+  FileReaderService.$inject = ['$q'];
+
+  function FileReaderService($q) {
+    var service = this;
+
+    service.readAsDataUrl = readAsDataUrl;
+
     var onLoad = function (reader, deferred, scope) {
       return function () {
         scope.$apply(function () {
@@ -44,17 +45,13 @@
       return reader;
     };
 
-    var readAsDataURL = function (file, scope) {
+    var readAsDataUrl = function (file, scope) {
       var deferred = $q.defer();
 
       var reader = getReader(deferred, scope);
-      reader.readAsDataURL(file);
+      reader.readAsDataUrl(file);
 
       return deferred.promise;
-    };
-
-    return {
-      readAsDataUrl: readAsDataURL
     };
   }
 })();

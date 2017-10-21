@@ -678,7 +678,7 @@
       if(user.group && $scope.groups.length) {
         var selected = $filter('filter')($scope.groups, {id: user.group});
         return selected.length ? selected[0].text : 'Not set';
-      } else return 'Not set'
+      } else return 'Not set';
     };
 
     $scope.showStatus = function(user) {
@@ -705,8 +705,8 @@
     };
 
     editableOptions.theme = 'bs3';
-    editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
-    editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
+    editableThemes.bs3.submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
+    editableThemes.bs3.cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
 
 
   }

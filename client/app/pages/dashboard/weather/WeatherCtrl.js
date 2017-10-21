@@ -44,7 +44,7 @@
 
     $scope.switchDay = function (day) {
       $scope.weather.current = day;
-      makeChart($scope.weather.days[$scope.weather.current].timeTemp)
+      makeChart($scope.weather.days[$scope.weather.current].timeTemp);
     };
 
     $scope.updateWeather = function () {
@@ -57,9 +57,9 @@
         }
       }).then(function success(response) {
         saveWeatherData(response.data);
-        makeChart($scope.weather.days[$scope.weather.current].timeTemp)
+        makeChart($scope.weather.days[$scope.weather.current].timeTemp);
       }, function error() {
-        console.log("WEATHER FAILED")
+        console.log("WEATHER FAILED");
       });
     };
 
@@ -68,7 +68,7 @@
         $scope.geoData = response.data;
         $scope.updateWeather();
       }, function error() {
-        console.log("GEO FAILED")
+        console.log("GEO FAILED");
       });
     }
 
