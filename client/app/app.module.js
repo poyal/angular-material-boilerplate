@@ -12,7 +12,12 @@ angular.module('app', [
   'ui.slimscroll',
   'ngJsTree',
   'angular-progress-button-styles',
+  'chart.js',
+  'angular-chartist',
+  'angular.morris-chart',
+  'textAngular',
 
-  'app.theme',
+  'app.core',
+  // 'app.templates',
   'app.pages'
 ]);

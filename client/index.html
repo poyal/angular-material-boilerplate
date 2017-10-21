@@ -42,37 +42,7 @@
   <!-- endbuild -->
 </head>
 <body>
-<main ng-if="$pageFinishedLoading" ng-class="{ 'menu-collapsed': $baSidebarService.isMenuCollapsed() }">
-
-  <ba-sidebar></ba-sidebar>
-  <page-top></page-top>
-
-  <div class="al-main">
-    <div class="al-content">
-      <content-top></content-top>
-      <div ui-view autoscroll="true" autoscroll-body-top></div>
-    </div>
-  </div>
-
-  <footer class="al-footer clearfix">
-    <div class="al-footer-right">Created with <i class="ion-heart"></i></div>
-    <div class="al-footer-main clearfix">
-      <div class="al-copy">Blur Admin 2016</div>
-      <ul class="al-share clearfix">
-        <li><i class="socicon socicon-facebook"></i></li>
-        <li><i class="socicon socicon-twitter"></i></li>
-        <li><i class="socicon socicon-google"></i></li>
-        <li><i class="socicon socicon-github"></i></li>
-      </ul>
-    </div>
-  </footer>
-
-  <back-top></back-top>
-</main>
-
-<div id="preloader" ng-show="!$pageFinishedLoading">
-  <div></div>
-</div>
+<div ui-view></div>
 
 <!-- build:js scripts/vendor.js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -135,18 +105,17 @@
 <!-- build:js scripts/app.js -->
 <!-- inject:js -->
 <script src="app/app.module.js"></script>
+<script src="app/templates.module.js"></script>
 <script src="app/pages/pages.module.js"></script>
-<script src="app/theme/theme.module.js"></script>
+<script src="app/core/core.module.js"></script>
 <script src="app/pages/charts/charts.module.js"></script>
 <script src="app/pages/components/components.module.js"></script>
 <script src="app/pages/dashboard/dashboard.module.js"></script>
-<script src="app/pages/form/form.module.js"></script>
 <script src="app/pages/maps/maps.module.js"></script>
 <script src="app/pages/profile/profile.module.js"></script>
-<script src="app/pages/tables/tables.module.js"></script>
+<script src="app/pages/form/form.module.js"></script>
 <script src="app/pages/ui/ui.module.js"></script>
-<script src="app/theme/components/components.module.js"></script>
-<script src="app/theme/inputs/inputs.module.js"></script>
+<script src="app/pages/tables/tables.module.js"></script>
 <script src="app/pages/charts/amCharts/amCharts.module.js"></script>
 <script src="app/pages/charts/chartist/chartist.module.js"></script>
 <script src="app/pages/charts/chartJs/chartJs.module.js"></script>
@@ -155,39 +124,42 @@
 <script src="app/pages/components/timeline/timeline.module.js"></script>
 <script src="app/pages/components/tree/tree.module.js"></script>
 <script src="app/pages/ui/alerts/alerts.module.js"></script>
-<script src="app/pages/ui/buttons/buttons.module.js"></script>
 <script src="app/pages/ui/grid/grid.module.js"></script>
-<script src="app/pages/ui/icons/icons.module.js"></script>
 <script src="app/pages/ui/modals/modals.module.js"></script>
+<script src="app/pages/ui/buttons/buttons.module.js"></script>
+<script src="app/pages/ui/icons/icons.module.js"></script>
 <script src="app/pages/ui/notifications/notifications.module.js"></script>
-<script src="app/pages/ui/panels/panels.module.js"></script>
 <script src="app/pages/ui/progressBars/progressBars.module.js"></script>
+<script src="app/pages/ui/panels/panels.module.js"></script>
 <script src="app/pages/ui/slider/slider.module.js"></script>
-<script src="app/pages/ui/tabs/tabs.module.js"></script>
 <script src="app/pages/ui/typography/typography.module.js"></script>
-<script src="app/theme/theme.config.js"></script>
-<script src="app/theme/theme.configProvider.js"></script>
-<script src="app/theme/theme.constants.js"></script>
-<script src="app/theme/theme.run.js"></script>
-<script src="app/theme/theme.service.js"></script>
+<script src="app/pages/ui/tabs/tabs.module.js"></script>
+<script src="app/core/app.config.js"></script>
+<script src="app/core/app.constant.js"></script>
+<script src="app/core/config.route.js"></script>
+<script src="app/core/core.controller.js"></script>
 <script src="app/pages/profile/ProfileModalCtrl.js"></script>
 <script src="app/pages/profile/ProfilePageCtrl.js"></script>
+<script src="app/core/services/baProgressModal.js"></script>
+<script src="app/core/services/baUtil.js"></script>
+<script src="app/core/services/fileReader.js"></script>
+<script src="app/core/services/preloader.js"></script>
+<script src="app/core/services/stopableInterval.js"></script>
+<script src="app/core/services/theme.service.js"></script>
+<script src="app/core/components/toastrLibConfig.js"></script>
 <script src="app/pages/tables/TablesPageCtrl.js"></script>
-<script src="app/theme/components/toastrLibConfig.js"></script>
-<script src="app/theme/directives/animatedChange.js"></script>
-<script src="app/theme/directives/autoExpand.js"></script>
-<script src="app/theme/directives/autoFocus.js"></script>
-<script src="app/theme/directives/includeWithScope.js"></script>
-<script src="app/theme/directives/ionSlider.js"></script>
-<script src="app/theme/directives/ngFileSelect.js"></script>
-<script src="app/theme/directives/scrollPosition.js"></script>
-<script src="app/theme/directives/trackWidth.js"></script>
-<script src="app/theme/directives/zoomIn.js"></script>
-<script src="app/theme/services/baProgressModal.js"></script>
-<script src="app/theme/services/baUtil.js"></script>
-<script src="app/theme/services/fileReader.js"></script>
-<script src="app/theme/services/preloader.js"></script>
-<script src="app/theme/services/stopableInterval.js"></script>
+<script src="app/core/directives/animatedChange.js"></script>
+<script src="app/core/directives/autoExpand.js"></script>
+<script src="app/core/directives/autoFocus.js"></script>
+<script src="app/core/directives/includeWithScope.js"></script>
+<script src="app/core/directives/ionSlider.js"></script>
+<script src="app/core/directives/ngFileSelect.js"></script>
+<script src="app/core/directives/scrollPosition.js"></script>
+<script src="app/core/directives/trackWidth.js"></script>
+<script src="app/core/directives/zoomIn.js"></script>
+<script src="app/core/theme/theme.config.js"></script>
+<script src="app/core/theme/theme.configProvider.js"></script>
+<script src="app/core/theme/theme.constants.js"></script>
 <script src="app/pages/charts/chartist/chartistCtrl.js"></script>
 <script src="app/pages/charts/chartJs/chartJs1DCtrl.js"></script>
 <script src="app/pages/charts/chartJs/chartJs2DCtrl.js"></script>
@@ -197,80 +169,80 @@
 <script src="app/pages/components/mail/MailTabCtrl.js"></script>
 <script src="app/pages/components/timeline/TimelineCtrl.js"></script>
 <script src="app/pages/components/tree/treeCtrl.js"></script>
-<script src="app/pages/dashboard/blurFeed/blurFeed.directive.js"></script>
-<script src="app/pages/dashboard/blurFeed/BlurFeedCtrl.js"></script>
 <script src="app/pages/dashboard/calendar/dashboardCalendar.js"></script>
 <script src="app/pages/dashboard/dashboardCalendar/dashboardCalendar.directive.js"></script>
 <script src="app/pages/dashboard/dashboardCalendar/DashboardCalendarCtrl.js"></script>
-<script src="app/pages/dashboard/dashboardLineChart/dashboardLineChart.directive.js"></script>
-<script src="app/pages/dashboard/dashboardLineChart/DashboardLineChartCtrl.js"></script>
+<script src="app/pages/dashboard/blurFeed/blurFeed.directive.js"></script>
+<script src="app/pages/dashboard/blurFeed/BlurFeedCtrl.js"></script>
 <script src="app/pages/dashboard/dashboardMap/dashboardMap.directive.js"></script>
 <script src="app/pages/dashboard/dashboardMap/DashboardMapCtrl.js"></script>
 <script src="app/pages/dashboard/dashboardPieChart/dashboardPieChart.directive.js"></script>
 <script src="app/pages/dashboard/dashboardPieChart/DashboardPieChartCtrl.js"></script>
+<script src="app/pages/dashboard/dashboardLineChart/dashboardLineChart.directive.js"></script>
+<script src="app/pages/dashboard/dashboardLineChart/DashboardLineChartCtrl.js"></script>
 <script src="app/pages/dashboard/dashboardTodo/dashboardTodo.directive.js"></script>
 <script src="app/pages/dashboard/dashboardTodo/DashboardTodoCtrl.js"></script>
 <script src="app/pages/dashboard/pieCharts/dashboardPieChart.js"></script>
 <script src="app/pages/dashboard/popularApp/popularApp.directive.js"></script>
 <script src="app/pages/dashboard/trafficChart/trafficChart.directive.js"></script>
 <script src="app/pages/dashboard/trafficChart/TrafficChartCtrl.js"></script>
+<script src="app/pages/maps/google-maps/GmapPageCtrl.js"></script>
 <script src="app/pages/dashboard/weather/weather.directive.js"></script>
 <script src="app/pages/dashboard/weather/WeatherCtrl.js"></script>
-<script src="app/pages/form/wizard/wizrdCtrl.js"></script>
-<script src="app/pages/maps/google-maps/GmapPageCtrl.js"></script>
-<script src="app/pages/maps/leaflet/LeafletPageCtrl.js"></script>
 <script src="app/pages/maps/map-bubbles/MapBubblePageCtrl.js"></script>
+<script src="app/pages/maps/leaflet/LeafletPageCtrl.js"></script>
 <script src="app/pages/maps/map-lines/MapLinesPageCtrl.js"></script>
+<script src="app/pages/form/wizard/wizrdCtrl.js"></script>
+<script src="app/pages/ui/modals/ModalsPageCtrl.js"></script>
 <script src="app/pages/ui/buttons/ButtonPageCtrl.js"></script>
 <script src="app/pages/ui/icons/IconsPageCtrl.js"></script>
-<script src="app/pages/ui/modals/ModalsPageCtrl.js"></script>
 <script src="app/pages/ui/notifications/NotificationsPageCtrl.js"></script>
-<script src="app/theme/components/backTop/backTop.directive.js"></script>
-<script src="app/theme/components/baPanel/baPanel.directive.js"></script>
-<script src="app/theme/components/baPanel/baPanel.service.js"></script>
-<script src="app/theme/components/baPanel/baPanelBlur.directive.js"></script>
-<script src="app/theme/components/baPanel/baPanelBlurHelper.service.js"></script>
-<script src="app/theme/components/baPanel/baPanelSelf.directive.js"></script>
-<script src="app/theme/components/baSidebar/baSidebar.directive.js"></script>
-<script src="app/theme/components/baSidebar/baSidebar.service.js"></script>
-<script src="app/theme/components/baSidebar/BaSidebarCtrl.js"></script>
-<script src="app/theme/components/baSidebar/baSidebarHelpers.directive.js"></script>
-<script src="app/theme/components/baWizard/baWizard.directive.js"></script>
-<script src="app/theme/components/baWizard/baWizardCtrl.js"></script>
-<script src="app/theme/components/baWizard/baWizardStep.directive.js"></script>
-<script src="app/theme/components/contentTop/contentTop.directive.js"></script>
-<script src="app/theme/components/msgCenter/msgCenter.directive.js"></script>
-<script src="app/theme/components/msgCenter/MsgCenterCtrl.js"></script>
-<script src="app/theme/components/pageTop/pageTop.directive.js"></script>
-<script src="app/theme/components/progressBarRound/progressBarRound.directive.js"></script>
-<script src="app/theme/components/widgets/widgets.directive.js"></script>
-<script src="app/theme/filters/image/appImage.js"></script>
-<script src="app/theme/filters/image/kameleonImg.js"></script>
-<script src="app/theme/filters/image/profilePicture.js"></script>
-<script src="app/theme/filters/text/removeHtml.js"></script>
-<script src="app/theme/inputs/baSwitcher/baSwitcher.js"></script>
+<script src="app/core/components/backTop/backTop.directive.js"></script>
+<script src="app/core/components/baPanel/baPanel.directive.js"></script>
+<script src="app/core/components/baPanel/baPanel.service.js"></script>
+<script src="app/core/components/baPanel/baPanelBlur.directive.js"></script>
+<script src="app/core/components/baPanel/baPanelBlurHelper.service.js"></script>
+<script src="app/core/components/baPanel/baPanelSelf.directive.js"></script>
+<script src="app/core/components/baSidebar/baSidebar.directive.js"></script>
+<script src="app/core/components/baSidebar/baSidebar.service.js"></script>
+<script src="app/core/components/baSidebar/BaSidebarCtrl.js"></script>
+<script src="app/core/components/baSidebar/baSidebarHelpers.directive.js"></script>
+<script src="app/core/components/baWizard/baWizard.directive.js"></script>
+<script src="app/core/components/baWizard/baWizardCtrl.js"></script>
+<script src="app/core/components/baWizard/baWizardStep.directive.js"></script>
+<script src="app/core/components/contentTop/contentTop.directive.js"></script>
+<script src="app/core/components/baSwitcher/baSwitcher.js"></script>
+<script src="app/core/components/msgCenter/msgCenter.directive.js"></script>
+<script src="app/core/components/msgCenter/MsgCenterCtrl.js"></script>
+<script src="app/core/components/pageTop/pageTop.directive.js"></script>
+<script src="app/core/components/progressBarRound/progressBarRound.directive.js"></script>
+<script src="app/core/components/widgets/widgets.directive.js"></script>
+<script src="app/core/filters/image/appImage.js"></script>
+<script src="app/core/filters/image/kameleonImg.js"></script>
+<script src="app/core/filters/image/profilePicture.js"></script>
+<script src="app/core/filters/text/removeHtml.js"></script>
 <script src="app/pages/charts/amCharts/areaChart/AreaChartCtrl.js"></script>
 <script src="app/pages/charts/amCharts/barChart/BarChartCtrl.js"></script>
 <script src="app/pages/charts/amCharts/combinedChart/combinedChartCtrl.js"></script>
 <script src="app/pages/charts/amCharts/funnelChart/FunnelChartCtrl.js"></script>
-<script src="app/pages/charts/amCharts/ganttChart/ganttChartCtrl.js"></script>
 <script src="app/pages/charts/amCharts/lineChart/LineChartCtrl.js"></script>
+<script src="app/pages/charts/amCharts/ganttChart/ganttChartCtrl.js"></script>
 <script src="app/pages/charts/amCharts/pieChart/PieChartCtrl.js"></script>
+<script src="app/pages/components/mail/list/MailListCtrl.js"></script>
+<script src="app/pages/components/mail/detail/MailDetailCtrl.js"></script>
 <script src="app/pages/components/mail/composeBox/composeBoxCtrl.js"></script>
 <script src="app/pages/components/mail/composeBox/composeModal.js"></script>
-<script src="app/pages/components/mail/detail/MailDetailCtrl.js"></script>
-<script src="app/pages/components/mail/list/MailListCtrl.js"></script>
 <script src="app/pages/ui/modals/notifications/NotificationsCtrl.js"></script>
 <script src="app/pages/ui/modals/progressModal/ProgressModalCtrl.js"></script>
-<script src="app/theme/components/backTop/lib/jquery.backTop.min.js"></script>
-<script src="app/pages/form/inputs/widgets/datePickers/datepickerCtrl.js"></script>
-<script src="app/pages/form/inputs/widgets/datePickers/datepickerpopupCtrl.js"></script>
-<script src="app/pages/form/inputs/widgets/oldSelect/OldSelectpickerPanelCtrl.js"></script>
-<script src="app/pages/form/inputs/widgets/oldSelect/selectpicker.directive.js"></script>
+<script src="app/core/components/backTop/lib/jquery.backTop.min.js"></script>
 <script src="app/pages/form/inputs/widgets/oldSwitches/OldSwitchPanelCtrl.js"></script>
 <script src="app/pages/form/inputs/widgets/oldSwitches/switch.directive.js"></script>
 <script src="app/pages/form/inputs/widgets/select/GroupSelectpickerOptions.js"></script>
 <script src="app/pages/form/inputs/widgets/select/SelectpickerPanelCtrl.js"></script>
+<script src="app/pages/form/inputs/widgets/oldSelect/OldSelectpickerPanelCtrl.js"></script>
+<script src="app/pages/form/inputs/widgets/oldSelect/selectpicker.directive.js"></script>
+<script src="app/pages/form/inputs/widgets/datePickers/datepickerCtrl.js"></script>
+<script src="app/pages/form/inputs/widgets/datePickers/datepickerpopupCtrl.js"></script>
 <script src="app/pages/form/inputs/widgets/switches/SwitchDemoPanelCtrl.js"></script>
 <script src="app/pages/form/inputs/widgets/tagsInput/tagsInput.directive.js"></script>
 <!-- endinject -->
