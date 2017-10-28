@@ -1,0 +1,55 @@
+<section>
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Line Chart" ba-panel-class="with-scroll">
+        <div
+            line-chart
+            line-data='vm.lineData'
+            line-xkey='y'
+            line-ykeys='["a", "b"]'
+            line-labels='["Serie A", "Serie B"]'
+            line-colors='vm.colors'>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div ba-panel ba-panel-title="Donut" ba-panel-class="with-scroll">
+        <div
+            donut-chart
+            donut-data='vm.donutData'
+            donut-colors='vm.colors'
+
+            donut-formatter='"currency"'>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div ba-panel ba-panel-title="Bar Chart" ba-panel-class="with-scroll ">
+        <div
+            bar-chart
+            bar-data='vm.barData'
+            bar-x='y'
+            bar-y='["a", "b"]'
+            bar-labels='["Series A", "Series B"]'
+            bar-colors='vm.colors'>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Area Chart" ba-panel-class="with-scroll">
+        <div
+            area-chart
+            area-data='vm.areaData'
+            area-xkey='y'
+            area-ykeys='["a", "b"]' %
+            area-labels='["Serie A", "Serie B"]'
+            line-colors='vm.colors'>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

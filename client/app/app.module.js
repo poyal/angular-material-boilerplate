@@ -20,6 +20,6 @@
 
     'app.core',
     // 'app.templates',
-    'app.pages'
+    'app.examples'
   ]);
 })();

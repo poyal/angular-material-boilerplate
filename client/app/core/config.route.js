@@ -17,8 +17,8 @@
             url: '/404',
             templateUrl: 'app/templates/404.html'
           });
-        $urlRouterProvider.when('', '/app/dashboard');
-        $urlRouterProvider.when('/', '/app/dashboard');
+        $urlRouterProvider.when('', '/app/examples/dashboard');
+        $urlRouterProvider.when('/', '/app/examples/dashboard');
         $urlRouterProvider.otherwise('/404');
       }
     ]);
