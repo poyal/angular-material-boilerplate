@@ -1,30 +1,28 @@
-/**
- * @author v.lugovksy
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
-  angular.module('app.examples.components.timeline')
-      .controller('TimelineCtrl', TimelineCtrl);
+  angular.module('app.examples.components')
+    .controller('timeLineController', TimeLineController);
 
-  /** @ngInject */
-  function TimelineCtrl() {
-    var timelineBlocks = $('.cd-timeline-block'),
-        offset = 0.8;
+  TimeLineController.$inject = [];
+
+  /* @ngInject */
+  function TimeLineController() {
+    var timeLineBlocks = $('.cd-timeline-block'),
+      offset = 0.8;
 
     //hide timeline blocks which are outside the viewport
-    hideBlocks(timelineBlocks, offset);
+    hideBlocks(timeLineBlocks, offset);
 
     //on scolling, show/animate timeline blocks when enter the viewport
     $(window).on('scroll', function () {
       if (!window.requestAnimationFrame) {
         setTimeout(function () {
-          showBlocks(timelineBlocks, offset);
+          showBlocks(timeLineBlocks, offset);
         }, 100);
       } else {
         window.requestAnimationFrame(function () {
-          showBlocks(timelineBlocks, offset);
+          showBlocks(timeLineBlocks, offset);
         });
       }
     });

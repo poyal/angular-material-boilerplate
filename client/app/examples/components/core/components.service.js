@@ -10,8 +10,8 @@
       return $uibModal.open({
         animation: false,
         templateUrl: 'app/examples/components/mail/composeBox/compose.html',
-        controller: 'composeBoxCtrl',
-        controllerAs: 'boxCtrl',
+        controller: 'composeController',
+        controllerAs: '$ctrl',
         size: 'compose',
         resolve: {
           subject: function () {

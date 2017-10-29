@@ -1,18 +1,14 @@
-/**
- * @author a.demeshko
- * created on 28.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.components')
-    .controller('MailListCtrl', MailListCtrl);
+    .controller('mailListController', MailListController);
 
-  /** @ngInject */
-  function MailListCtrl($stateParams,  mailMessagesService) {
+  MailListController.$inject = ['$stateParams', 'mailMessagesService'];
+
+  function MailListController($stateParams, mailMessagesService) {
     var vm = this;
     vm.messages = mailMessagesService.getMessagesByLabel($stateParams.label);
     vm.label = $stateParams.label;
   }
-
 })();

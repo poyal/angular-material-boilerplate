@@ -3,10 +3,10 @@
 
   angular.module('app.examples', [
     'app.examples.dashboard',
-    'app.examples.charts'
+    'app.examples.charts',
+    'app.examples.components'
 
     // 'app.examples.ui',
-    // 'app.examples.components',
     // 'app.examples.form',
     // 'app.examples.tables',
     //

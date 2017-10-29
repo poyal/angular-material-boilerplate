@@ -1,15 +1,13 @@
-/**
- * @author a.demeshko
- * created on 24/12/15
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.components')
-    .controller('composeBoxCtrl', composeBoxCtrl);
+    .controller('composeController', ComposeController);
+
+  ComposeController.$inject = ['subject', 'to', 'text'];
 
   /** @ngInject */
-  function composeBoxCtrl(subject, to, text) {
+  function ComposeController(subject, to, text) {
     var vm = this;
     vm.subject = subject;
     vm.to = to;
