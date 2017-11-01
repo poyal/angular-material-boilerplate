@@ -10,6 +10,8 @@
       .state('app.examples.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/examples/dashboard/dashboard.html',
+        controller: 'dashBoardController',
+        controllerAs: 'vm',
         title: 'Dashboard',
         sidebarMeta: {
           icon: 'ion-android-home',
