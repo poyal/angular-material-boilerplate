@@ -7,11 +7,12 @@
     'app.examples.components',
     'app.examples.form',
     'app.examples.maps',
-    'app.examples.profile'
+    'app.examples.profile',
+    'app.examples.tables'
 
     // 'app.examples.ui',
 
-    // 'app.examples.tables',
+
     //
 
 
