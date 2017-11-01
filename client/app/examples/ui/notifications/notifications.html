@@ -3,53 +3,53 @@
     <div class="col-md-3 col-sm-4">
       <div class="control">
         <label for="title">Title</label>
-        <input ng-model="options.title" type="text" class="form-control" id="title" placeholder="Enter a title ...">
+        <input ng-model="vm.options.title" type="text" class="form-control" id="title" placeholder="Enter a title ...">
       </div>
       <div class="control">
         <label for="message">Message</label>
-        <textarea ng-model="options.msg" class="form-control" id="message" rows="3"
+        <textarea ng-model="vm.options.msg" class="form-control" id="message" rows="3"
                   placeholder="Enter a message ..."></textarea>
       </div>
       <div class="control-group">
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.closeButton" type="checkbox" id="closeButton">
+            <input ng-model="vm.options.closeButton" type="checkbox" id="closeButton">
             <span>Close Button</span>
           </label>
         </div>
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.allowHtml" type="checkbox" id="html">
+            <input ng-model="vm.options.allowHtml" type="checkbox" id="html">
             <span>Allow html</span>
           </label>
         </div>
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.progressBar" type="checkbox" id="progressBar">
+            <input ng-model="vm.options.progressBar" type="checkbox" id="progressBar">
             <span>Progress bar</span>
           </label>
         </div>
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.preventDuplicates" type="checkbox" id="preventDuplicates">
+            <input ng-model="vm.options.preventDuplicates" type="checkbox" id="preventDuplicates">
             <span>Prevent duplicates</span>
           </label>
         </div>
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.preventOpenDuplicates" type="checkbox" id="preventOpenDuplicates">
+            <input ng-model="vm.options.preventOpenDuplicates" type="checkbox" id="preventOpenDuplicates">
             <span>Prevent open duplicates</span>
           </label>
         </div>
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.tapToDismiss" type="checkbox" id="tapToDismiss">
+            <input ng-model="vm.options.tapToDismiss" type="checkbox" id="tapToDismiss">
             <span>Tap to dismiss</span>
           </label>
         </div>
         <div class="control">
           <label class="checkbox-inline custom-checkbox nowrap">
-            <input ng-model="options.newestOnTop" type="checkbox" id="newestOnTop">
+            <input ng-model="vm.options.newestOnTop" type="checkbox" id="newestOnTop">
             <span>Newest on top</span>
           </label>
         </div>
@@ -60,16 +60,16 @@
         <div class="controls radio-controls">
           <label class="radio-header">Toast Type</label>
           <label class="radio custom-radio">
-            <input type="radio" ng-model="options.type" name="toasts" value="success"/><span>Success</span>
+            <input type="radio" ng-model="vm.options.type" name="toasts" value="success"/><span>Success</span>
           </label>
           <label class="radio custom-radio">
-            <input type="radio" ng-model="options.type" name="toasts" value="info"/><span>Info</span>
+            <input type="radio" ng-model="vm.options.type" name="toasts" value="info"/><span>Info</span>
           </label>
           <label class="radio custom-radio">
-            <input type="radio" ng-model="options.type" name="toasts" value="warning"/><span>Warning</span>
+            <input type="radio" ng-model="vm.options.type" name="toasts" value="warning"/><span>Warning</span>
           </label>
           <label class="radio custom-radio">
-            <input type="radio" ng-model="options.type" name="toasts" value="error"/><span>Error</span>
+            <input type="radio" ng-model="vm.options.type" name="toasts" value="error"/><span>Error</span>
           </label>
         </div>
       </div>
@@ -136,16 +136,16 @@
     </div>
     <div class="col-md-5 col-sm-12">
       <label>Result:</label>
-      <pre class="result-toastr" id='toastrOptions'>{{optionsStr}}</pre>
+      <pre class="result-toastr" id='toastrOptions'>{{vm.optionsStr}}</pre>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-12 button-row">
-      <button ng-click="openToast()" class="btn btn-primary">Open Toast</button>
-      <button ng-click="openRandomToast()" class="btn btn-primary">Random Toast</button>
-      <button ng-click="clearToasts()" class="btn btn-danger">Clear Toasts</button>
-      <button ng-click="clearLastToast()" class="btn btn-danger">Clear Last Toast</button>
+      <button ng-click="vm.openToast()" class="btn btn-primary">Open Toast</button>
+      <button ng-click="vm.openRandomToast()" class="btn btn-primary">Random Toast</button>
+      <button ng-click="vm.clearToasts()" class="btn btn-danger">Clear Toasts</button>
+      <button ng-click="vm.clearLastToast()" class="btn btn-danger">Clear Last Toast</button>
     </div>
   </div>
 

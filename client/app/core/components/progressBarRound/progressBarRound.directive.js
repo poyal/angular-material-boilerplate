@@ -4,9 +4,9 @@
   angular.module('app.core')
     .directive('progressBarRound', ProgressBarRoundDirective);
 
-  ProgressBarRoundDirective.$inject = [];
+  ProgressBarRoundDirective.$inject = ['baProgressModal'];
 
-  function ProgressBarRoundDirective() {
+  function ProgressBarRoundDirective(baProgressModal) {
     return {
       restrict: 'E',
       templateUrl: 'app/core/components/progressBarRound/progressBarRound.html',

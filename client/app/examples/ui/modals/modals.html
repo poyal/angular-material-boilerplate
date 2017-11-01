@@ -6,11 +6,16 @@
          ba-panel-title="Modals"
          ba-panel-class="with-scroll">
       <div class="modal-buttons clearfix">
-        <button type="button" class="btn btn-primary" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/basicModal.html', 'md')">Default modal</button>
-        <button type="button" class="btn btn-success" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/largeModal.html', 'lg')">
+        <button type="button" class="btn btn-primary" data-toggle="modal"
+                ng-click="vm.open('basicModal', 'md')">
+          Default modal
+        </button>
+        <button type="button" class="btn btn-success" data-toggle="modal"
+                ng-click="vm.open('largeModal', 'lg')">
           Large modal
         </button>
-        <button type="button" class="btn btn-warning" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/smallModal.html', 'sm')">
+        <button type="button" class="btn btn-warning" data-toggle="modal"
+                ng-click="vm.open('smallModal', 'sm')">
           Small modal
         </button>
       </div>
@@ -23,14 +28,20 @@
          ba-panel-title="Message Modals"
          ba-panel-class="with-scroll">
       <div class="modal-buttons same-width clearfix">
-        <button type="button" class="btn btn-success" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/successModal.html')">
+        <button type="button" class="btn btn-success" data-toggle="modal"
+                ng-click="vm.open('successModal')">
           Success Message
         </button>
-        <button type="button" class="btn btn-info" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/infoModal.html')">Info Message</button>
-        <button type="button" class="btn btn-warning" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/warningModal.html')">
+        <button type="button" class="btn btn-info" data-toggle="modal"
+                ng-click="vm.open('infoModal')">
+          Info Message
+        </button>
+        <button type="button" class="btn btn-warning" data-toggle="modal"
+                ng-click="vm.open('warningModal')">
           Warning Message
         </button>
-        <button type="button" class="btn btn-danger" data-toggle="modal" ng-click="open('app/examples/ui/modals/modalTemplates/dangerModal.html')">
+        <button type="button" class="btn btn-danger" data-toggle="modal"
+                ng-click="vm.open('dangerModal')">
           Danger Message
         </button>
       </div>
@@ -39,7 +50,12 @@
          ba-panel
          ba-panel-title="Notifications"
          ba-panel-class="with-scroll">
-      <div ng-include="'app/examples/ui/modals/notifications/notifications.html'"></div>
+      <div class="modal-buttons same-width clearfix">
+        <button type="button" class="btn btn-success" ng-click="vm.showSuccessMsg()">Success Notification</button>
+        <button type="button" class="btn btn-info" ng-click="vm.showInfoMsg()">Info Notification</button>
+        <button type="button" class="btn btn-warning" ng-click="vm.showWarningMsg()">Warning Notification</button>
+        <button type="button" class="btn btn-danger" ng-click="vm.showErrorMsg()">Danger Notification</button>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -48,7 +64,7 @@
          ba-panel-title="Progress dialogs"
          ba-panel-class="with-scroll">
       <div class="modal-buttons same-width clearfix">
-        <button type="button" class="btn btn-info" data-toggle="modal" ng-click="openProgressDialog()">
+        <button type="button" class="btn btn-info" data-toggle="modal" ng-click="vm.openProgressDialog()">
           Progress dialog
         </button>
       </div>

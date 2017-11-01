@@ -1,16 +1,14 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
-  angular.module('app.examples.ui.icons')
-      .controller('IconsPageCtrl', IconsPageCtrl);
+  angular.module('app.examples.ui')
+      .controller('iconsController', IconsController);
 
-  /** @ngInject */
-  function IconsPageCtrl($scope) {
-    $scope.icons = {
+  IconsController.$inject = [];
+
+  function IconsController() {
+    var vm = this;
+    vm.icons = {
       kameleonIcons: [
         {
           name: 'Beach',

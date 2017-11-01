@@ -5,15 +5,18 @@
 (function () {
   'use strict';
 
-  angular.module('app.examples.ui.notifications')
-      .controller('NotificationsPageCtrl', NotificationsPageCtrl);
+  angular.module('app.examples.ui')
+    .controller('notificationsController', NotificationsController);
 
-  /** @ngInject */
-  function NotificationsPageCtrl($scope, toastr, toastrConfig) {
+  NotificationsController.$inject = ['$scope', 'toastr', 'toastrConfig'];
+
+  function NotificationsController($scope, toastr, toastrConfig) {
+    var vm = this;
     var defaultConfig = angular.copy(toastrConfig);
-    $scope.types = ['success', 'error', 'info', 'warning'];
 
-    $scope.quotes = [
+    vm.types = ['success', 'error', 'info', 'warning'];
+
+    vm.quotes = [
       {
         title: 'Come to Freenode',
         message: 'We rock at <em>#angularjs</em>',
@@ -58,7 +61,7 @@
     ];
 
     var openedToasts = [];
-    $scope.options = {
+    vm.options = {
       autoDismiss: false,
       positionClass: 'toast-top-right',
       type: 'info',
@@ -77,35 +80,44 @@
     };
 
 
-    $scope.clearLastToast = function () {
+    function clearLastToast() {
       var toast = openedToasts.pop();
       toastr.clear(toast);
-    };
+    }
 
-    $scope.clearToasts = function () {
+    function clearToasts() {
       toastr.clear();
-    };
+    }
 
-    $scope.openRandomToast = function () {
-      var type = Math.floor(Math.random() * $scope.types.length);
-      var quote = Math.floor(Math.random() * $scope.quotes.length);
-      var toastType = $scope.types[type];
-      var toastQuote = $scope.quotes[quote];
+    function openRandomToast() {
+      var type = Math.floor(Math.random() * vm.types.length);
+      var quote = Math.floor(Math.random() * vm.quotes.length);
+      var toastType = vm.types[type];
+      var toastQuote = vm.quotes[quote];
       openedToasts.push(toastr[toastType](toastQuote.message, toastQuote.title, toastQuote.options));
-      $scope.optionsStr = "toastr." + toastType + "(\'" + toastQuote.message + "\', \'" + toastQuote.title + "', " + JSON.stringify(toastQuote.options || {}, null, 2) + ")";
-    };
+      vm.optionsStr = "toastr." + toastType + "(\'" + toastQuote.message + "\', \'" + toastQuote.title + "', " + JSON.stringify(toastQuote.options || {}, null, 2) + ")";
+    }
 
-    $scope.openToast = function () {
-      angular.extend(toastrConfig, $scope.options);
-      openedToasts.push(toastr[$scope.options.type]($scope.options.msg, $scope.options.title));
+    function openToast() {
+      angular.extend(toastrConfig, vm.options);
+      openedToasts.push(toastr[vm.options.type](vm.options.msg, vm.options.title));
       var strOptions = {};
-      for (var o in  $scope.options) if (o !== 'msg' && o !== 'title')strOptions[o] = $scope.options[o];
-      $scope.optionsStr = "toastr." + $scope.options.type + "(\'" + $scope.options.msg + "\', \'" + $scope.options.title + "\', " + JSON.stringify(strOptions, null, 2) + ")";
-    };
+      for (var option in  vm.options) {
+        if (option !== 'msg' && option !== 'title') {
+          strOptions[option] = vm.options[option];
+        }
+      }
+      vm.optionsStr = "toastr." + vm.options.type + "(\'" + vm.options.msg + "\', \'" + vm.options.title + "\', " + JSON.stringify(strOptions, null, 2) + ")";
+    }
 
     $scope.$on('$destroy', function iVeBeenDismissed() {
       angular.extend(toastrConfig, defaultConfig);
     });
+
+    vm.openToast = openToast;
+    vm.openRandomToast = openRandomToast;
+    vm.clearToasts = clearToasts;
+    vm.clearLastToast = clearLastToast;
   }
 
 })();
