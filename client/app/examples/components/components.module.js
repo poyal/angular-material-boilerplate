@@ -57,7 +57,7 @@
         url: '/tree',
         templateUrl: 'app/examples/components/tree/tree.html',
         controller: 'treeController',
-        controllerAs: 'vm',
+        // controllerAs: 'vm',
         title: 'Tree View',
         sidebarMeta: {
           order: 200

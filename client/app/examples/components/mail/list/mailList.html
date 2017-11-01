@@ -37,18 +37,18 @@
         <td class="photo-td" ui-sref="app.examples.components.mail.detail({id: message.id, label: vm.label})">
           <img ng-src="{{message.name.split(' ')[0] | profilePicture}}" class="little-human-picture">
         </td>
-        <td ui-sref="app.examples.components.mail.detail({id: m.id, label: vm.label})">
+        <td ui-sref="app.examples.components.mail.detail({id: message.id, label: vm.label})">
           <div class="name-container">
             <div><span class="name">{{message.name}}</span></div>
             <div><span class="tag label label-primary {{message.tag}}">{{message.tag}}</span></div>
           </div>
         </td>
-        <td ui-sref="app.examples.components.mail.detail({id: m.id, label: vm.label})">
+        <td ui-sref="app.examples.components.mail.detail({id: message.id, label: vm.label})">
           <div class="additional-info">
             <span class="subject"> {{message.subject}}</span>
           </div>
         </td>
-        <td ui-sref="app.examples.components.mail.detail({id: m.id, label: vm.label})">
+        <td ui-sref="app.examples.components.mail.detail({id: message.id, label: vm.label})">
           <div class="mail-body-part">{{message.body | plainText}}</div>
         </td>
         <td class="date">
