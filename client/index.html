@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
   <!-- endbuild -->
 
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
   <!-- build:css css/app.css -->
   <link rel="stylesheet" href="css/main.css"/>
   <!--<link rel="stylesheet" href="css/auth.css"/>-->
@@ -108,15 +110,14 @@
 <script src="app/app.module.js"></script>
 <script src="app/core/core.module.js"></script>
 <script src="app/examples/examples.module.js"></script>
-<script src="app/examples/components/components.module.js"></script>
 <script src="app/examples/charts/charts.module.js"></script>
+<script src="app/examples/components/components.module.js"></script>
 <script src="app/examples/dashboard/dashboard.module.js"></script>
 <script src="app/examples/form/form.module.js"></script>
 <script src="app/examples/maps/maps.module.js"></script>
 <script src="app/examples/profile/profile.module.js"></script>
-<script src="app/examples/tables/tables.module.js"></script>
 <script src="app/examples/ui/ui.module.js"></script>
-<script src="app/examples/ui/typography/typography.module.js"></script>
+<script src="app/examples/tables/tables.module.js"></script>
 <script src="app/core/app.config.js"></script>
 <script src="app/core/app.constant.js"></script>
 <script src="app/core/config.route.js"></script>
@@ -131,8 +132,6 @@
 <script src="app/core/directives/scrollPosition.directive.js"></script>
 <script src="app/core/directives/trackWidth.directive.js"></script>
 <script src="app/core/directives/zoomIn.directive.js"></script>
-<script src="app/core/filters/image.filter.js"></script>
-<script src="app/core/filters/text.filter.js"></script>
 <script src="app/core/services/baProgressModal.factory.js"></script>
 <script src="app/core/services/baUtil.service.js"></script>
 <script src="app/core/services/fileReader.service.js"></script>
@@ -143,35 +142,37 @@
 <script src="app/core/theme/theme.configProvider.js"></script>
 <script src="app/core/theme/theme.constants.js"></script>
 <script src="app/examples/dashboard/dashboard.controller.js"></script>
+<script src="app/core/filters/image.filter.js"></script>
+<script src="app/core/filters/text.filter.js"></script>
 <script src="app/core/components/backTop/backTop.directive.js"></script>
 <script src="app/core/components/baPanel/baPanel.directive.js"></script>
 <script src="app/core/components/baPanel/baPanel.factory.js"></script>
 <script src="app/core/components/baPanel/baPanelBlur.directive.js"></script>
 <script src="app/core/components/baPanel/baPanelBlurHelper.service.js"></script>
 <script src="app/core/components/baPanel/baPanelSelf.directive.js"></script>
-<script src="app/core/components/baSidebar/BaSidebar.comtroller.js"></script>
+<script src="app/core/components/baSidebar/baSidebar.comtroller.js"></script>
 <script src="app/core/components/baSidebar/baSidebar.directive.js"></script>
 <script src="app/core/components/baSidebar/baSidebar.provider.js"></script>
-<script src="app/core/components/baSwitcher/baSwitcher.directive.js"></script>
 <script src="app/core/components/baWizard/baWizard.directive.js"></script>
 <script src="app/core/components/baWizard/baWizardStep.directive.js"></script>
 <script src="app/core/components/contentTop/contentTop.directive.js"></script>
 <script src="app/core/components/msgCenter/msgCenter.directive.js"></script>
 <script src="app/core/components/pageTop/pageTop.directive.js"></script>
+<script src="app/core/components/baSwitcher/baSwitcher.directive.js"></script>
 <script src="app/core/components/progressBarRound/progressBarRound.directive.js"></script>
-<script src="app/core/components/progressModal/progressModal.controller.js"></script>
 <script src="app/core/components/widgets/widgets.directive.js"></script>
+<script src="app/core/components/progressModal/progressModal.controller.js"></script>
+<script src="app/examples/charts/amCharts/amCharts.comtoller.js"></script>
+<script src="app/examples/charts/chartist/chartist.controller.js"></script>
+<script src="app/examples/charts/morris/morris.controller.js"></script>
+<script src="app/examples/charts/chartJs/chartJs.comtroller.js"></script>
 <script src="app/examples/components/core/components.service.js"></script>
 <script src="app/examples/components/core/mailMessages.service.js"></script>
 <script src="app/examples/components/mail/mail.comtroller.js"></script>
-<script src="app/examples/components/timeline/Timeline.controller.js"></script>
 <script src="app/examples/components/tree/tree.controller.js"></script>
-<script src="app/examples/charts/chartist/chartist.controller.js"></script>
-<script src="app/examples/charts/amCharts/amCharts.comtoller.js"></script>
-<script src="app/examples/charts/chartJs/chartJs.comtroller.js"></script>
-<script src="app/examples/charts/morris/morris.controller.js"></script>
-<script src="app/examples/form/inputs/inputs.controller.js"></script>
+<script src="app/examples/components/timeline/Timeline.controller.js"></script>
 <script src="app/examples/form/layouts/layouts.controller.js"></script>
+<script src="app/examples/form/inputs/inputs.controller.js"></script>
 <script src="app/examples/form/wizard/wizrd.controller.js"></script>
 <script src="app/examples/maps/bubbles/bubbles.controller.js"></script>
 <script src="app/examples/maps/google/google.controller.js"></script>
@@ -179,29 +180,29 @@
 <script src="app/examples/maps/lines/lines.controller.js"></script>
 <script src="app/examples/profile/components/profileModal.controller.js"></script>
 <script src="app/examples/profile/profile/profile.controller.js"></script>
-<script src="app/examples/tables/basic-table/basicTable.controller.js"></script>
-<script src="app/examples/tables/smart-table/smartTable.controller.js"></script>
 <script src="app/examples/ui/buttons/buttons.controller.js"></script>
 <script src="app/examples/ui/icons/icons.controller.js"></script>
 <script src="app/examples/ui/modals/modals.controller.js"></script>
 <script src="app/examples/ui/notifications/notifications.controller.js"></script>
+<script src="app/examples/tables/basic-table/basicTable.controller.js"></script>
+<script src="app/examples/tables/smart-table/smartTable.controller.js"></script>
 <script src="app/core/components/baSidebar/directive/baSidebarCollapseMenu.directive.js"></script>
 <script src="app/core/components/baSidebar/directive/baSidebarToggleMenu.directive.js"></script>
 <script src="app/core/components/baSidebar/directive/baSidebarTogglingItem.directive.js"></script>
 <script src="app/core/components/baSidebar/directive/baUiSrefToggler.directive.js"></script>
 <script src="app/core/components/baSidebar/directive/baUiSrefTogglingSubmenu.directive.js"></script>
-<script src="app/examples/components/mail/composeBox/compose.controller.js"></script>
 <script src="app/examples/components/mail/detail/mailDetail.controller.js"></script>
-<script src="app/examples/components/mail/list/mailList.controller.js"></script>
+<script src="app/examples/components/mail/composeBox/compose.controller.js"></script>
 <script src="app/examples/dashboard/components/blurFeed/blurFeed.directive.js"></script>
-<script src="app/examples/dashboard/components/dashboardLineChart/dashboardLineChart.directive.js"></script>
+<script src="app/examples/components/mail/list/mailList.controller.js"></script>
 <script src="app/examples/dashboard/components/dashboardCalendar/dashboardCalendar.directive.js"></script>
-<script src="app/examples/dashboard/components/dashboardMap/dashboardMap.directive.js"></script>
+<script src="app/examples/dashboard/components/dashboardLineChart/dashboardLineChart.directive.js"></script>
 <script src="app/examples/dashboard/components/dashboardPieChart/dashboardPieChart.directive.js"></script>
 <script src="app/examples/dashboard/components/dashboardTodo/dashboardTodo.directive.js"></script>
+<script src="app/examples/dashboard/components/dashboardMap/dashboardMap.directive.js"></script>
 <script src="app/examples/dashboard/components/popularApp/popularApp.directive.js"></script>
-<script src="app/examples/dashboard/components/trafficChart/trafficChart.directive.js"></script>
 <script src="app/examples/dashboard/components/weather/weather.directive.js"></script>
+<script src="app/examples/dashboard/components/trafficChart/trafficChart.directive.js"></script>
 <script src="app/examples/form/inputs/directives/selectpicker.directive.js"></script>
 <script src="app/examples/form/inputs/directives/switch.directive.js"></script>
 <script src="app/examples/form/inputs/directives/tagInput.directive.js"></script>
