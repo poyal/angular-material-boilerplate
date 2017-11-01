@@ -11,8 +11,7 @@
       staticMenuItems.push.apply(staticMenuItems, arguments);
     };
 
-    /** @ngInject */
-    this.$get = function ($state, layoutSizes) {
+    function get($state, layoutSizes) {
       return new _factory();
 
       function _factory() {
@@ -64,22 +63,22 @@
 
         function defineMenuItemStates() {
           return $state.get()
-            .filter(function (s) {
-              return s.sidebarMeta;
+            .filter(function (sidebar) {
+              return sidebar.sidebarMeta;
             })
-            .map(function (s) {
-              var meta = s.sidebarMeta;
+            .map(function (sidebar) {
+              var meta = sidebar.sidebarMeta;
               return {
-                name: s.name,
-                title: s.title,
-                level: (s.name.match(/\./g) || []).length,
+                name: sidebar.name,
+                title: sidebar.title,
+                level: (sidebar.name.match(/\./g) || []).length,
                 order: meta.order,
                 icon: meta.icon,
-                stateRef: s.name
+                stateRef: sidebar.name
               };
             })
-            .sort(function (a, b) {
-              return (a.level - b.level) * 100 + a.order - b.order;
+            .sort(function (item1, item2) {
+              return (item1.level - item2.level) * 100 + item1.order - item2.order;
             });
         }
 
@@ -92,7 +91,8 @@
         }
       }
 
-    };
+    }
 
+    this.$get = get;
   }
 })();
