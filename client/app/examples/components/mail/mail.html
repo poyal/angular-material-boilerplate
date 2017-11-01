@@ -8,14 +8,12 @@
               Compose
             </button>
           </div>
-          <div ng-repeat="t in $tapRoot.tabs" ui-sref-active="active" class="mail-navigation"
-               ui-sref="components.mail.label({label: t.label})" ng-click="selectTab(t.label)">
-            {{t.name}}<span class="new-mails" ng-show="t.newMails">{{t.newMails}}</span>
+          <div ng-repeat="tap in $tapRoot.tabs" ui-sref-active="active" class="mail-navigation"
+               ui-sref="app.examples.components.mail.label({label: tap.label})"
+               ng-click="$tapRoot.selectTab(tap.label)">
+            {{tap.name}}<span class="new-mails" ng-show="tap.newMails">{{tap.newMails}}</span>
           </div>
           <div class="labels">
-            <div class="labels-title">
-
-            </div>
             <div class="labels-container">
               <div class="label-item">
                 <span class="tag label work">Work</span>
