@@ -4,10 +4,11 @@
   angular.module('app.examples', [
     'app.examples.dashboard',
     'app.examples.charts',
-    'app.examples.components'
+    'app.examples.components',
+    'app.examples.form'
 
     // 'app.examples.ui',
-    // 'app.examples.form',
+
     // 'app.examples.tables',
     //
     // 'app.examples.maps',

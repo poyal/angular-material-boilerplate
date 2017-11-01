@@ -17,6 +17,8 @@
     'angular-chartist',
     'angular.morris-chart',
     'textAngular',
+    'ui.select',
+    'ngSanitize',
 
     'app.core',
     // 'app.templates',

@@ -1,17 +1,13 @@
-/**
- * @author p.maslava
- * created on 28.11.2016
- */
-
-(function() {
+(function () {
   'use strict';
 
   angular.module('app.examples.form')
-    .filter('groupSelectpickerOptions', GroupSelectpickerOptions);
+    .filter('groupSelectpickerOptions', GroupSelectpickerOptionsFilter);
 
-  /** @ngInject */
-  function GroupSelectpickerOptions() {
-    return function (items, props) {
+  function GroupSelectpickerOptionsFilter() {
+    return groupSelectpickerOptions;
+
+    function groupSelectpickerOptions(items, props) {
       var out = [];
 
       if (angular.isArray(items)) {
@@ -34,11 +30,9 @@
           }
         });
       } else {
-        // Let the output be the input untouched
         out = items;
       }
-
       return out;
-    };
+    }
   }
 })();

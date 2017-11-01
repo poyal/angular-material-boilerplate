@@ -1,20 +1,44 @@
-/**
- * @author p.maslava
- * created on 28.11.2016
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.form')
-    .controller('SelectpickerPanelCtrl', SelectpickerPanelCtrl);
+    .controller('inputsController', InputsController);
 
-  /** @ngInject */
-  function SelectpickerPanelCtrl() {
+  InputsController.$inject = [];
 
+  function InputsController() {
     var vm = this;
+    vm.switches = {
+      s1: true,
+      s2: false,
+      s3: true,
+      s4: true,
+      s5: false
+    };
+
+    vm.switcherValues = {
+      primary: true,
+      warning: true,
+      danger: true,
+      info: true,
+      success: true
+    };
+
+    vm.dt = new Date();
+    vm.opened = false;
+    vm.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    vm.format = vm.formats[0];
+    vm.options = {
+      showWeeks: false
+    };
+
+    function popupOpen() {
+      vm.opened = true;
+    }
+
+    vm.popupOpen = popupOpen;
+
     vm.disabled = undefined;
-
-
     vm.standardItem = {};
     vm.standardSelectItems = [
       {label: 'Option 1', value: 1},
@@ -86,7 +110,25 @@
       {label: 'Option 8', value: 8}
     ];
 
+    vm.standardSelectItems = [
+      { label: 'Option 1', value: 1 },
+      { label: 'Option 2', value: 2 },
+      { label: 'Option 3', value: 3 },
+      { label: 'Option 4', value: 4 }
+    ];
+
+    vm.selectWithSearchItems = [
+      { label: 'Hot Dog, Fries and a Soda', value: 1 },
+      { label: 'Burger, Shake and a Smile', value: 2 },
+      { label: 'Sugar, Spice and all things nice', value: 3 },
+      { label: 'Baby Back Ribs', value: 4 }
+    ];
+
+    vm.groupedSelectItems = [
+      { label: 'Group 1 - Option 1', value: 1, group: 'Group 1' },
+      { label: 'Group 2 - Option 2', value: 2, group: 'Group 2' },
+      { label: 'Group 1 - Option 3', value: 3, group: 'Group 1' },
+      { label: 'Group 2 - Option 4', value: 4, group: 'Group 2' }
+    ];
   }
 })();
-
-

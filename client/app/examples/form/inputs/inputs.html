@@ -2,66 +2,553 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div
-          ba-panel
-          ba-panel-title="Standard Fields"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/standardFields.html'"></div>
-      </div>
-      <div
-          ba-panel
-          ba-panel-title="Tags Input"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/tagsInput/tagsInput.html'"></div>
-      </div>
-      <div
-          ba-panel
-          ba-panel-title="Input Groups"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/inputGroups.html'"></div>
-      </div>
-      <div
-          ba-panel
-          ba-panel-title="Checkboxes & Radios"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/checkboxesRadios.html'"></div>
+      <div ba-panel
+           ba-panel-title="Standard Fields"
+           ba-panel-class="with-scroll">
+        <form>
+          <div class="form-group">
+            <label for="input01">Text</label>
+            <input type="text" class="form-control" id="input01" placeholder="Text">
+          </div>
+          <div class="form-group">
+            <label for="input02">Password</label>
+            <input type="password" class="form-control" id="input02" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="input03">Rounded Corners</label>
+            <input type="text" class="form-control form-control-rounded" id="input03" placeholder="Rounded Corners">
+          </div>
+          <div class="form-group">
+            <label for="input04">With help</label>
+            <input type="text" class="form-control" id="input04" placeholder="With help">
+            <span class="help-block sub-little-text">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+          </div>
+          <div class="form-group">
+            <label for="input05">Disabled Input</label>
+            <input type="text" class="form-control" id="input05" placeholder="Disabled Input" disabled>
+          </div>
+
+          <div class="form-group">
+            <label for="textarea01">Textarea</label>
+            <textarea placeholder="Default Input" class="form-control" id="textarea01"></textarea>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control input-sm" id="input2" placeholder="Small Input">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control input-lg" id="input4" placeholder="Large Input">
+          </div>
+        </form>
       </div>
 
-      <div ba-panel ba-panel-title="On/Off Switches" ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/switches/switch.html'"></div>
+      <div ba-panel
+           ba-panel-title="Tags Input"
+           ba-panel-class="with-scroll">
+        <div class="form-group">
+          <div class="form-group">
+            <input type="text" tag-input="primary" value="Amsterdam,Washington,Sydney,Beijing,Cairo"
+                   data-role="tagsinput" placeholder="Add Tag">
+          </div>
+          <div class="form-group">
+            <input type="text" tag-input="warning" value="Minsk,Prague,Vilnius,Warsaw" data-role="tagsinput"
+                   placeholder="Add Tag">
+          </div>
+          <div class="form-group">
+            <input type="text" tag-input="danger" value="London,Berlin,Paris,Rome,Munich" data-role="tagsinput"
+                   placeholder="Add Tag">
+          </div>
+        </div>
       </div>
 
-      <div ba-panel ba-panel-title="Old On/Off Switches (Deprecated)" ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/oldSwitches/switch.html'"></div>
-      </div>
-      <div
-          ba-panel
-          ba-panel-title="Datepicker"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/datePickers/datePickers.html'"></div>
+      <div ba-panel
+           ba-panel-title="Input Groups"
+           ba-panel-class="with-scroll">
+        <div class="input-group">
+          <span class="input-group-addon input-group-addon-primary addon-left" id="basic-addon1">@</span>
+          <input type="text" class="form-control with-primary-addon" placeholder="Username"
+                 aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+          <input type="text" class="form-control with-warning-addon" placeholder="Recipient's username"
+                 aria-describedby="basic-addon2">
+          <span class="input-group-addon input-group-addon-warning addon-right" id="basic-addon2">@example.com</span>
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon addon-left input-group-addon-success">$</span>
+          <input type="text" class="form-control with-success-addon" aria-label="Amount (to the nearest dollar)">
+          <span class="input-group-addon addon-right input-group-addon-success">.00</span>
+        </div>
+
+        <div class="input-group">
+          <input type="text" class="form-control with-danger-addon" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">Go!</button>
+          </span>
+        </div>
       </div>
 
+      <div ba-panel
+           ba-panel-title="Checkboxes & Radios"
+           ba-panel-class="with-scroll">
+        <div class="checkbox-demo-row">
+          <div class="input-demo checkbox-demo row">
+            <div class="col-md-4">
+              <label class="checkbox-inline custom-checkbox nowrap">
+                <input type="checkbox" id="inlineCheckbox01" value="option1">
+                <span>Check 1</span>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="checkbox-inline custom-checkbox nowrap">
+                <input type="checkbox" id="inlineCheckbox02" value="option2">
+                <span>Check 2</span>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="checkbox-inline custom-checkbox nowrap">
+                <input type="checkbox" id="inlineCheckbox03" value="option3">
+                <span>Check 3</span>
+              </label>
+            </div>
+          </div>
+          <div class="input-demo radio-demo row">
+            <div class="col-md-4">
+              <label class="radio-inline custom-radio nowrap">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <span>Option 1</span>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="radio-inline custom-radio nowrap">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <span>Option 2</span>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="radio-inline custom-radio nowrap">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                <span>Option3</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="checkbox disabled">
+            <label class="custom-checkbox nowrap">
+              <input type="checkbox" value="" disabled>
+              <span>Checkbox is disabled</span>
+            </label>
+          </div>
+          <div class="radio disabled">
+            <label class="custom-radio nowrap">
+              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+              <span>Disabled option</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div ba-panel
+           ba-panel-title="On/Off Switches"
+           ba-panel-class="with-scroll">
+        <ba-switcher switcher-style="primary" switcher-value="vm.switches.s1"></ba-switcher>
+        <ba-switcher switcher-style="success" switcher-value="vm.switches.s2"></ba-switcher>
+        <ba-switcher switcher-style="warning" switcher-value="vm.switches.s3"></ba-switcher>
+        <ba-switcher switcher-style="danger" switcher-value="vm.switches.s4"></ba-switcher>
+        <ba-switcher switcher-style="info" switcher-value="vm.switches.s5"></ba-switcher>
+      </div>
+
+      <div ba-panel
+           ba-panel-title="Old On/Off Switches (Deprecated)"
+           ba-panel-class="with-scroll">
+        <div class="switches clearfix">
+          <switch color="primary" ng-model="vm.switcherValues.primary"></switch>
+          <switch color="warning" ng-model="vm.switcherValues.warning"></switch>
+          <switch color="danger" ng-model="vm.switcherValues.danger"></switch>
+          <switch color="info" ng-model="vm.switcherValues.info"></switch>
+          <switch color="success" ng-model="vm.switcherValues.success"></switch>
+        </div>
+      </div>
+
+      <div ba-panel
+           ba-panel-title="Datepicker"
+           ba-panel-class="with-scroll">
+        <div class="datepicker row">
+          <div class="col-xlg-6 col-md-12 col-sm-6">
+            <h4>Inline</h4>
+            <label>Selected date is: <em>{{vm.dt | date:'fullDate' }}</em></label>
+            <div class="uib-datepicker-wrap">
+              <uib-datepicker ng-model="vm.dt" datepicker-options="vm.options"></uib-datepicker>
+            </div>
+          </div>
+
+          <div class="col-xlg-6 col-md-12 col-sm-6">
+            <h4>Popup</h4>
+            <label>Selected date is: <em>{{vm.dt | date:'fullDate' }}</em></label>
+            <p class="input-group">
+              <input type="text"
+                     class="form-control"
+                     uib-datepicker-popup="{{vm.format}}"
+                     datepicker-options="vm.options"
+                     ng-model="vm.dt"
+                     is-open="vm.opened"
+                     ng-required="true"
+                     close-text="Close"
+                     alt-input-formats="altInputFormats"
+                     show-button-bar="false"/>
+              <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="vm.popupOpen()">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+            </p>
+            <label>Format: <span class="muted-text">(manual alternate <em>{{altInputFormats[0]}}</em>)</span></label>
+            <select class="form-control"
+                    ng-model="vm.format"
+                    ng-options="f for f in vm.formats">
+              <option></option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="col-md-6">
-      <div
-          ba-panel
-          ba-panel-title="Validation States"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/validationStates.html'"></div>
+      <div ba-panel
+           ba-panel-title="Validation States"
+           ba-panel-class="with-scroll">
+        <div class="form-group has-success">
+          <label class="control-label" for="inputSuccess1">Input with success</label>
+          <input type="text" class="form-control" id="inputSuccess1">
+        </div>
+        <div class="form-group has-warning">
+          <label class="control-label" for="inputWarning1">Input with warning</label>
+          <input type="text" class="form-control" id="inputWarning1">
+        </div>
+        <div class="form-group has-error">
+          <label class="control-label" for="inputError1">Input with error</label>
+          <input type="text" class="form-control" id="inputError1">
+        </div>
+        <div class="has-success">
+          <div class="checkbox">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="checkboxSuccess" value="option1">
+              <span>Checkbox with success</span>
+            </label>
+          </div>
+        </div>
+        <div class="has-warning">
+          <div class="checkbox">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="checkboxWarning" value="option1">
+              <span>Checkbox with warning</span>
+            </label>
+          </div>
+        </div>
+        <div class="has-error">
+          <div class="checkbox">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="checkboxError" value="option1">
+              <span>Checkbox with error</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="inputSuccess2">Input with success</label>
+          <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+          <i class="ion-checkmark-circled form-control-feedback" aria-hidden="true"></i>
+          <span id="inputSuccess2Status" class="sr-only">(success)</span>
+        </div>
+        <div class="form-group has-warning has-feedback">
+          <label class="control-label" for="inputWarning2">Input with warning</label>
+          <input type="text" class="form-control" id="inputWarning2" aria-describedby="inputWarning2Status">
+          <i class="ion-alert-circled form-control-feedback" aria-hidden="true"></i>
+          <span id="inputWarning2Status" class="sr-only">(warning)</span>
+        </div>
+        <div class="form-group has-error has-feedback">
+          <label class="control-label" for="inputError2">Input with error</label>
+          <input type="text" class="form-control" id="inputError2" aria-describedby="inputError2Status">
+          <i class="ion-android-cancel form-control-feedback" aria-hidden="true"></i>
+          <span id="inputError2Status" class="sr-only">(error)</span>
+        </div>
+        <div class="form-group has-success has-feedback">
+          <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+          <div class="input-group">
+            <span class="input-group-addon addon-left">@</span>
+            <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+          </div>
+          <i class="ion-checkmark-circled form-control-feedback" aria-hidden="true"></i>
+          <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+        </div>
       </div>
-      <div
-          ba-panel
-          ba-panel-title="Selects"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/select/select.html'"></div>
+
+      <div ba-panel
+           ba-panel-title="Selects"
+           ba-panel-class="with-scroll">
+        <div class="ng-cloak">
+          <div class="form-group">
+            <ui-select ng-model="vm.selectedItem.selected"
+                       class="btn-group bootstrap-select form-control"
+                       ng-disabled="false"
+                       append-to-body="true"
+                       search-enabled="false">
+              <ui-select-match placeholder="Standard Select">
+                <span> {{$select.selected.label}}</span>
+              </ui-select-match>
+              <ui-select-choices repeat="standardItem in vm.standardSelectItems | filter: $select.search">
+                <span ng-bind-html="standardItem.label"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <div class="form-group ">
+            <ui-select ng-model="vm.withSearchItem.selected"
+                       class="btn-group bootstrap-select form-control"
+                       ng-disabled="false"
+                       append-to-body="true"
+                       search-enabled="true">
+              <ui-select-match placeholder="Select With Search">
+                {{$select.selected.label}}
+              </ui-select-match>
+              <ui-select-choices repeat="withSearchItem in vm.selectWithSearchItems | filter: $select.search">
+                <span ng-bind-html="withSearchItem.label"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="form-group">
+            <ui-select ng-model="vm.disableItem.selected"
+                       class="btn-group bootstrap-select form-control"
+                       ng-disabled="true"
+                       append-to-body="true"
+                       search-enabled="false">
+              <ui-select-match placeholder="Disabled Selection">
+                <span> {{$select.selected.label}}</span>
+              </ui-select-match>
+              <ui-select-choices repeat="disableItem in vm.disableItems | filter: $select.search">
+                <span ng-bind-html="disableItem.label"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+
+          <div class="form-group">
+            <ui-select ng-model="vm.groupedItems.selected"
+                       class="btn-group bootstrap-select form-control"
+                       ng-disabled="false"
+                       append-to-body="true"
+                       search-enabled="true">
+              <ui-select-match placeholder="Select With Option Groups">
+                {{$select.selected.label}}
+              </ui-select-match>
+              <ui-select-choices
+                  repeat="groupedItems in vm.groupedSelectItems | groupSelectpickerOptions: {label: $select.search}"
+                  group-by="'group'">
+                <span ng-bind-html="groupedItems.label | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="form-group">
+            <ui-select ng-model="vm.groupedByItems.selected"
+                       class="btn-group bootstrap-select form-control"
+                       ng-disabled="false"
+                       append-to-body="true"
+                       search-enabled="true">
+              <ui-select-match placeholder="Select With Option Groups Function">
+                {{$select.selected.name}}
+              </ui-select-match>
+              <ui-select-choices
+                  repeat="groupedByItems in vm.groupedBySelectItems | filter: $select.search"
+                  group-by="vm.someGroupFn">
+                <span ng-bind-html="groupedByItems.name | highlight: $select.search"></span>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+
+          <div class="form-group">
+            <ui-select multiple ng-model="vm.multipleItem.selected"
+                       ng-disabled="false"
+                       search-enabled="true"
+                       append-to-body="true"
+                       class="form-control ">
+              <ui-select-match placeholder="Multiple Select">
+                {{$item.label}}
+              </ui-select-match>
+              <ui-select-choices repeat="multipleItem in vm.multipleSelectItems | filter: $select.search">
+                {{multipleItem.label}}
+              </ui-select-choices>
+            </ui-select>
+          </div>
+
+          <div class="form-group ">
+            <div class="input-group">
+              <ui-select multiple
+                         ng-model="vm.withDeleteItem.selected"
+                         ng-disabled="false"
+                         search-enabled="true"
+                         append-to-body="true"
+                         class="form-control form-control">
+                <ui-select-match placeholder="Select With Clear Button">
+                  {{$item.label}}
+                </ui-select-match>
+                <ui-select-choices
+                    repeat="withDeleteItem in vm.withDeleteSelectItems | filter: $select.search">
+                  {{withDeleteItem.label}}
+                </ui-select-choices>
+              </ui-select>
+              <span class="input-group-btn">
+                <button type="button" ng-click="vm.withDeleteItem.selected = undefined"
+                        class="btn btn-danger">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div
-          ba-panel
-          ba-panel-title="Old selects(deprecated)"
-          ba-panel-class="with-scroll">
-        <div ng-include="'app/examples/form/inputs/widgets/oldSelect/select.html'"></div>
+
+      <div ba-panel
+           ba-panel-title="Old selects(deprecated)"
+           ba-panel-class="with-scroll">
+        <div class="form-group">
+          <select class="form-control selectpicker" selectpicker title="Standard Select"
+                  ng-model="vm.standardSelected"
+                  ng-options="item as item.label for item in vm.standardSelectItems">
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control selectpicker with-search" data-live-search="true" title="Select With Search"
+                  selectpicker
+                  ng-model="vm.searchSelectedItem"
+                  ng-options="item as item.label for item in vm.selectWithSearchItems">
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control selectpicker" title="Option Types" selectpicker>
+            <option>Standard option</option>
+            <option data-subtext="option subtext">Option with subtext</option>
+            <option disabled>Disabled Option</option>
+            <option data-icon="glyphicon-heart">Option with cion</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control selectpicker" disabled title="Disabled Select" selectpicker>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control" title="Select with Option Groups" selectpicker
+                      ng-model="vm.groupedSelectedItem"
+                      ng-options="item as item.label group by item.group for item in vm.groupedSelectItems">
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control" title="Select with Divider" selectpicker>
+                <option>Group 1 - Option 1</option>
+                <option>Group 1 - Option 2</option>
+                <option data-divider="true"></option>
+                <option>Group 2 - Option 1</option>
+                <option>Group 2 - Option 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" title="Multiple Select" multiple selectpicker
+                  ng-model="vm.multipleSelectedItems"
+                  ng-options="item as item.label for item in vm.standardSelectItems">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control" title="Multiple Select with Limit" multiple data-max-options="2" selectpicker
+                  ng-model="vm.multipleSelectedItems2"
+                  ng-options="item as item.label for item in vm.standardSelectItems">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control" title="Primary Select" data-style="btn-primary" data-container="body"
+                      selectpicker>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control" title="Success Select" data-style="btn-success" data-container="body"
+                      selectpicker>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <select class="form-control" title="Warning Select" data-style="btn-warning" data-container="body"
+                      selectpicker>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <select class="form-control" title="Info Select" data-style="btn-info" data-container="body"
+                      selectpicker>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select class="form-control" title="Danger Select" data-style="btn-danger" data-container="body"
+                      selectpicker>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <select class="form-control" title="Inverse Select" data-style="btn-inverse" data-container="body"
+                      selectpicker>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
