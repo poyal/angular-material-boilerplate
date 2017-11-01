@@ -1,29 +1,27 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.profile')
-    .controller('ProfilePageCtrl', ProfilePageCtrl);
+    .controller('profileController', ProfileController);
 
-  /** @ngInject */
-  function ProfilePageCtrl($scope, fileReader, $filter, $uibModal) {
-    $scope.picture = $filter('profilePicture')('Nasta');
+  ProfileController.$inject = ['fileReader', '$filter', '$uibModal'];
 
-    $scope.removePicture = function () {
-      $scope.picture = $filter('appImage')('theme/no-photo.png');
-      $scope.noPicture = true;
-    };
+  function ProfileController(fileReader, $filter, $uibModal) {
+    var vm = this;
+    vm.picture = $filter('profilePicture')('Nasta');
 
-    $scope.uploadPicture = function () {
+    function removePicture() {
+      vm.picture = $filter('appImage')('theme/no-photo.png');
+      vm.noPicture = true;
+    }
+
+    function uploadPicture() {
       var fileInput = document.getElementById('uploadFile');
       fileInput.click();
 
-    };
+    }
 
-    $scope.socialProfiles = [
+    vm.socialProfiles = [
       {
         name: 'Facebook',
         href: 'https://www.facebook.com/akveo/',
@@ -62,28 +60,34 @@
       }
     ];
 
-    $scope.unconnect = function (item) {
+    function unconnect(item) {
       item.href = undefined;
-    };
+    }
 
-    $scope.showModal = function (item) {
+    function showModal(item) {
       $uibModal.open({
         animation: false,
-        controller: 'ProfileModalCtrl',
-        templateUrl: 'app/examples/profile/profileModal.html'
+        templateUrl: 'app/examples/profile/components/profileModal.html',
+        controller: 'profileModalController',
+        controllerAs: '$ctrl'
       }).result.then(function (link) {
-          item.href = link;
+        item.href = link;
+      });
+    }
+
+    function getFile() {
+      fileReader.readAsDataUrl(vm.file, vm)
+        .then(function (result) {
+          vm.picture = result;
         });
-    };
+    }
 
-    $scope.getFile = function () {
-      fileReader.readAsDataUrl($scope.file, $scope)
-          .then(function (result) {
-            $scope.picture = result;
-          });
-    };
+    vm.switches = [true, true, false, true, true, false];
 
-    $scope.switches = [true, true, false, true, true, false];
+    vm.removePicture = removePicture;
+    vm.uploadPicture = uploadPicture;
+    vm.unconnect = unconnect;
+    vm.showModal = showModal;
+    vm.getFile = getFile;
   }
-
 })();

@@ -1,22 +1,20 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.profile', [])
-      .config(routeConfig);
+    .config(['$stateProvider', routeConfig]);
 
-  /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('profile', {
-          url: '/profile',
-          title: 'Profile',
-          templateUrl: 'app/examples/profile/profile.html',
-          controller: 'ProfilePageCtrl',
-        });
+      .state('app.examples.profile', {
+        url: '/profile',
+        templateUrl: 'app/examples/profile/profile/profile.html',
+        controller: 'profileController',
+        controllerAs: 'vm',
+        title: 'Profile',
+        sidebarMeta: {
+          order: 0
+        }
+      });
   }
-
 })();

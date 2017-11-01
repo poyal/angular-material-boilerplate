@@ -10,11 +10,11 @@
       <p>Paste a link to your profile into the box below</p>
 
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Link to Profile" ng-model="link">
+        <input type="text" class="form-control" placeholder="Link to Profile" ng-model="$ctrl.link">
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" ng-click="ok(link)">Save changes</button>
+      <button type="button" class="btn btn-primary" ng-click="$ctrl.ok($ctrl.link)">Save changes</button>
     </div>
   </form>
 </div>
