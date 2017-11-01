@@ -5,13 +5,14 @@
     'app.examples.dashboard',
     'app.examples.charts',
     'app.examples.components',
-    'app.examples.form'
+    'app.examples.form',
+    'app.examples.maps'
 
     // 'app.examples.ui',
 
     // 'app.examples.tables',
     //
-    // 'app.examples.maps',
+
     // 'app.examples.profile'
   ]).config(['$stateProvider', routeConfig]);
 

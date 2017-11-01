@@ -1,15 +1,13 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.maps')
-      .controller('LeafletPageCtrl', LeafletPageCtrl);
+    .controller('leafletController', LeafletController);
 
-  /** @ngInject */
-  function LeafletPageCtrl($timeout) {
+  LeafletController.$inject = ['$timeout'];
+
+  function LeafletController($timeout) {
+    var vm = this;
     function initialize() {
       L.Icon.Default.imagePath = 'assets/img/theme/vendor/leaflet/dist/images';
       var map = L.map(document.getElementById('leaflet-map')).setView([51.505, -0.09], 13);
@@ -18,14 +16,13 @@
       }).addTo(map);
 
       L.marker([51.5, -0.09]).addTo(map)
-          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-          .openPopup();
+        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+        .openPopup();
     }
 
     $timeout(function(){
       initialize();
     }, 100);
-
   }
-
 })();
+

@@ -1,15 +1,13 @@
-/**
- * @author v.lugovsky
- * created on 16.12.2015
- */
 (function () {
   'use strict';
 
   angular.module('app.examples.maps')
-      .controller('GmapPageCtrl', GmapPageCtrl);
+    .controller('googleController', GoogleMapsController);
 
-  /** @ngInject */
-  function GmapPageCtrl($timeout) {
+  GoogleMapsController.$inject = ['$timeout'];
+
+  function GoogleMapsController($timeout) {
+    var vm = this;
     function initialize() {
       var mapCanvas = document.getElementById('google-maps');
       var mapOptions = {
@@ -24,5 +22,4 @@
       initialize();
     }, 100);
   }
-
 })();
