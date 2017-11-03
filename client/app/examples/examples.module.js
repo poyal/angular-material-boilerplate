@@ -19,7 +19,12 @@
       .state('app.examples', {
         url: '/examples',
         abstract: true,
-        template: '<div ui-view></div>'
+        template: '<div ui-view></div>',
+        title: 'Examples',
+        sidebarMeta: {
+          icon: 'ion-gear-a',
+          order: 100
+        }
       });
   }
 
