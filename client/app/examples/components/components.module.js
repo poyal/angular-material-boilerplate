@@ -40,7 +40,7 @@
         templateUrl: 'app/examples/components/mail/detail/mailDetail.html',
         controller: 'mailDetailController',
         controllerAs: 'vm',
-        title: 'Mail'
+        title: 'Mail Detail'
       })
       .state('app.examples.components.timeline', {
         url: '/timeline',

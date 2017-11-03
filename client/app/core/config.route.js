@@ -19,7 +19,7 @@
           });
         $urlRouterProvider.when('', '/app/examples/dashboard');
         $urlRouterProvider.when('/', '/app/examples/dashboard');
-        $urlRouterProvider.otherwise('/404');
+        // $urlRouterProvider.otherwise('/404');
       }
     ]);
 })();
