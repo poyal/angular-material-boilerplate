@@ -1,59 +1,134 @@
-<aside class="al-sidebar" ng-swipe-right="$ctrl.$baSidebarService.setMenuCollapsed(false)" ng-swipe-left="$ctrl.$baSidebarService.setMenuCollapsed(true)"
+<aside class="al-sidebar"
+       ng-swipe-right="$ctrl.$baSidebarService.setMenuCollapsed(false)"
+       ng-swipe-left="$ctrl.$baSidebarService.setMenuCollapsed(true)"
        ng-mouseleave="$ctrl.hoverElemTop=selectElemTop">
-  <ul class="al-sidebar-list" slimscroll="{height: '{{$ctrl.menuHeight}}px'}" slimscroll-watch="menuHeight" >
-    <li ng-repeat="item in ::$ctrl.menuItems" class="al-sidebar-list-item"
-        ng-class="::{'with-sub-menu': item.subMenu}" ui-sref-active="selected"
+
+  <ul class="al-sidebar-list"
+      slimscroll="{height: '{{$ctrl.menuHeight}}px'}" slimscroll-watch="menuHeight">
+
+    <li class="al-sidebar-list-item"
+        ng-repeat="item in ::$ctrl.menuItems"
+        ng-class="::{'with-sub-menu': item.subMenu}"
+        ui-sref-active="selected"
         ba-sidebar-toggling-item="item">
 
-      <a ng-mouseenter="hoverItem($event, item)" ui-state="item.stateRef || ''" ng-href="{{::(item.fixedHref ? item.fixedHref: '')}}" ng-if="::!item.subMenu" class="al-sidebar-list-link">
-        <i class="{{ ::item.icon }}"></i><span>{{ ::item.title }}</span>
-      </a>
+      <!-- 서브 메뉴 없을때 -->
+      <a class="al-sidebar-list-link"
+         ng-if="::!item.subMenu"
+         ng-mouseenter="hoverItem($event, item)"
+         ui-state="item.stateRef || ''"
+         ng-href="{{::(item.fixedHref ? item.fixedHref: '')}}">
 
-      <a ng-mouseenter="hoverItem($event, item)" ng-if="::item.subMenu"
-         class="al-sidebar-list-link" ba-ui-sref-toggler>
-        <i class="{{ ::item.icon }}"></i><span>{{ ::item.title }}</span>
-        <b class="fa fa-angle-down" ui-sref-active="fa-angle-up"
-           ng-if="::item.subMenu"></b>
+        <i class="{{ ::item.icon }}"></i>
+        <span>{{ ::item.title }}</span>
       </a>
+      <!-- 서브 메뉴 없을때 END -->
 
-      <ul ng-if="::item.subMenu" class="al-sidebar-sublist"
+      <!-- 서브 메뉴 있을때 -->
+      <a class="al-sidebar-list-link"
+         ng-if="::item.subMenu"
+         ng-mouseenter="hoverItem($event, item)"
+         ba-ui-sref-toggler>
+
+        <i class="{{ ::item.icon }}"></i>
+        <span>{{ ::item.title }}</span>
+        <b class="fa fa-angle-down"
+           ng-if="::item.subMenu"
+           ui-sref-active="fa-angle-up">
+        </b>
+      </a>
+      <!-- 서브 메뉴 있을때 END -->
+
+      <!-- 서브 메뉴 -->
+      <ul class="al-sidebar-sublist"
+          ng-if="::item.subMenu"
           ng-class="{'slide-right': item.slideRight}"
           ba-ui-sref-toggling-submenu>
-        <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected"
-            ba-sidebar-toggling-item="subitem" class="ba-sidebar-sublist-item">
-          <a ng-mouseenter="$ctrl.hoverItem($event, item)" ng-if="::subitem.subMenu" ba-ui-sref-toggler
-             class="al-sidebar-list-link subitem-submenu-link"><span>{{ ::subitem.title }}</span>
-            <b class="fa" ng-class="{'fa-angle-up': subitem.expanded, 'fa-angle-down': !subitem.expanded}"
-               ng-if="::subitem.subMenu"></b>
+
+        <li class="ba-sidebar-sublist-item"
+            ng-repeat="subItem in ::item.subMenu"
+            ng-class="::{'with-sub-menu': subItem.subMenu}"
+            ui-sref-active="selected"
+            ba-sidebar-toggling-item="subItem">
+
+          <!-- 2차 메뉴의 서브 메뉴 있을때 -->
+          <a class="al-sidebar-list-link subitem-submenu-link"
+             ng-if="::subItem.subMenu"
+             ba-ui-sref-toggler
+             ng-mouseenter="$ctrl.hoverItem($event, item)">
+
+            <i class="{{::subItem.icon}}"></i>
+            <span>{{::subItem.title}}</span>
+            <b class="fa"
+               ng-class="{'fa-angle-up': subItem.expanded, 'fa-angle-down': !subItem.expanded}"
+               ng-if="::subItem.subMenu">
+            </b>
           </a>
-          <ul ng-if="::subitem.subMenu" class="al-sidebar-sublist subitem-submenu-list"
-              ng-class="{expanded: subitem.expanded, 'slide-right': subitem.slideRight}"
+          <!-- 2차 서브 메뉴 있을때 END -->
+
+          <!-- 2차 서브 메뉴 -->
+          <ul class="al-sidebar-sublist subitem-submenu-list"
+              ng-if="::subItem.subMenu"
+              ng-class="{expanded: subItem.expanded, 'slide-right': subItem.slideRight}"
               ba-ui-sref-toggling-submenu>
-            <li ng-mouseenter="$ctrl.hoverItem($event, item)" ng-repeat="subSubitem in ::subitem.subMenu" ui-sref-active="selected">
-              <a ng-mouseenter="$ctrl.hoverItem($event, item)" href ng-if="::subSubitem.disabled" class="al-sidebar-list-link">
-                {{ ::subSubitem.title }}
+
+            <li ng-mouseenter="$ctrl.hoverItem($event, item)"
+                ng-repeat="subSubItem in ::subItem.subMenu"
+                ui-sref-active="selected">
+
+              <!-- 2차 서브메뉴 Disable -->
+              <a class="al-sidebar-list-link"
+                 ng-if="::subSubItem.disabled"
+                 ng-mouseenter="$ctrl.hoverItem($event, item)"
+                 href>
+
+                <i class="{{::subSubItem.icon}}"></i>
+                <span>{{::subSubItem.title }}</span>
               </a>
-              <a ng-mouseenter="$ctrl.hoverItem($event, item)"
-                 ui-state="subSubitem.stateRef || ''"
-                 ng-if="::!subSubitem.disabled"
-                 ng-href="{{::(subSubitem.fixedHref ? subSubitem.fixedHref: '')}}">
-                {{::subSubitem.title }}
+              <!-- 2차 서브메뉴 Disable END -->
+
+              <!-- 2차 서브메뉴 활성화 -->
+              <a ng-if="::!subSubItem.disabled"
+                 ng-mouseenter="$ctrl.hoverItem($event, item)"
+                 ui-state="subSubItem.stateRef || ''"
+                 ng-href="{{::(subSubItem.fixedHref ? subSubItem.fixedHref: '')}}">
+
+                <i class="{{::subSubItem.icon}}"></i>
+                <span>{{::subSubItem.title }}</span>
               </a>
+              <!-- 2차 서브메뉴 활성화 END -->
             </li>
           </ul>
-          <a ng-mouseenter="$ctrl.hoverItem($event, item)" href ng-if="::(!subitem.subMenu && subitem.disabled)" class="al-sidebar-list-link">
-            {{ ::subitem.title }}
+          <!-- 2차 메뉴의 서브 메뉴 END -->
+
+          <!-- 서브메뉴 Disable -->
+          <a class="al-sidebar-list-link"
+             ng-if="::(!subItem.subMenu && subItem.disabled)"
+             ng-mouseenter="$ctrl.hoverItem($event, item)"
+             href>
+            <i class="{{::subItem.icon}}"></i>
+            <span>{{::subItem.title}}</span>
           </a>
-          <a ng-mouseenter="$ctrl.hoverItem($event, item)" target="{{::(subitem.blank ? '_blank' : '_self')}}"
-             ng-if="::(!subitem.subMenu && !subitem.disabled)"
-             ui-state="subitem.stateRef || ''"
-             ng-href="{{::(subitem.fixedHref ? subitem.fixedHref: '')}}">
-            {{ ::subitem.title}}
+          <!-- 서브메뉴 Disable END -->
+
+          <!-- 2차 서브메뉴 없음 -->
+          <a ng-if="::(!subItem.subMenu && !subItem.disabled)"
+             ng-mouseenter="$ctrl.hoverItem($event, item)"
+             target="{{::(subItem.blank ? '_blank' : '_self')}}"
+             ui-state="subItem.stateRef || ''"
+             ng-href="{{::(subItem.fixedHref ? subItem.fixedHref: '')}}">
+            <i class="{{::subItem.icon}}"></i>
+            <span>{{::subItem.title}}</span>
           </a>
+          <!-- 2차 서브메뉴 없음 END -->
         </li>
       </ul>
+      <!-- 서브 메뉴 END-->
     </li>
   </ul>
-  <div class="sidebar-hover-elem" ng-style="{top: $ctrl.hoverElemTop + 'px', height: $ctrl.hoverElemHeight + 'px'}"
-       ng-class="{'show-hover-elem': $ctrl.showHoverElem }"></div>
+
+  <div class="sidebar-hover-elem"
+       ng-style="{top: $ctrl.hoverElemTop + 'px', height: $ctrl.hoverElemHeight + 'px'}"
+       ng-class="{'show-hover-elem': $ctrl.showHoverElem }">
+  </div>
 </aside>
