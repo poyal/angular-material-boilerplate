@@ -56,9 +56,7 @@
              ng-if="::subItem.subMenu"
              ba-ui-sref-toggler
              ng-mouseenter="$ctrl.hoverItem($event, item)">
-
-            <i class="{{::subItem.icon}}"></i>
-            <span>{{::subItem.title}}</span>
+            {{::subItem.title}}
             <b class="fa"
                ng-class="{'fa-angle-up': subItem.expanded, 'fa-angle-down': !subItem.expanded}"
                ng-if="::subItem.subMenu">
@@ -81,9 +79,7 @@
                  ng-if="::subSubItem.disabled"
                  ng-mouseenter="$ctrl.hoverItem($event, item)"
                  href>
-
-                <i class="{{::subSubItem.icon}}"></i>
-                <span>{{::subSubItem.title }}</span>
+                {{::subSubItem.title }}
               </a>
               <!-- 2차 서브메뉴 Disable END -->
 
@@ -92,9 +88,7 @@
                  ng-mouseenter="$ctrl.hoverItem($event, item)"
                  ui-state="subSubItem.stateRef || ''"
                  ng-href="{{::(subSubItem.fixedHref ? subSubItem.fixedHref: '')}}">
-
-                <i class="{{::subSubItem.icon}}"></i>
-                <span>{{::subSubItem.title }}</span>
+                {{::subSubItem.title }}
               </a>
               <!-- 2차 서브메뉴 활성화 END -->
             </li>
@@ -106,8 +100,7 @@
              ng-if="::(!subItem.subMenu && subItem.disabled)"
              ng-mouseenter="$ctrl.hoverItem($event, item)"
              href>
-            <i class="{{::subItem.icon}}"></i>
-            <span>{{::subItem.title}}</span>
+            {{::subItem.title}}
           </a>
           <!-- 서브메뉴 Disable END -->
 
@@ -117,8 +110,7 @@
              target="{{::(subItem.blank ? '_blank' : '_self')}}"
              ui-state="subItem.stateRef || ''"
              ng-href="{{::(subItem.fixedHref ? subItem.fixedHref: '')}}">
-            <i class="{{::subItem.icon}}"></i>
-            <span>{{::subItem.title}}</span>
+            {{::subItem.title}}
           </a>
           <!-- 2차 서브메뉴 없음 END -->
         </li>

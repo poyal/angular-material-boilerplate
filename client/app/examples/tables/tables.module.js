@@ -10,7 +10,7 @@
         url: '/tables',
         abstract: true,
         template: "<div ui-view  autoscroll='true' autoscroll-body-top></div>",
-        title: 'Maps',
+        title: 'Tables',
         sidebarMeta: {
           icon: 'ion-grid',
           order: 300

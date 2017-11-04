@@ -27,6 +27,14 @@
             var children = states.filter(function (child) {
               return child.level === 1 && child.name.indexOf(item.name) === 0;
             });
+
+            children.forEach(function (item) {
+              var childrenChildren = states.filter(function (child2) {
+                return child2.level === 2 && child2.name.indexOf(item.name) === 0;
+              });
+              item.subMenu = childrenChildren.length ? childrenChildren : null;
+            });
+
             item.subMenu = children.length ? children : null;
           });
 
@@ -91,6 +99,7 @@
         }
       }
     }
+
     this.$get = get;
   }
 })();
