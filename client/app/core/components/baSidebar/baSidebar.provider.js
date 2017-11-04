@@ -71,7 +71,7 @@
               return {
                 name: sidebar.name,
                 title: sidebar.title,
-                level: (sidebar.name.match(/\./g) || []).length,
+                level: (sidebar.name.match(/\./g) || []).length - 1, //TODO: 수정사항 -1 제거
                 order: meta.order,
                 icon: meta.icon,
                 stateRef: sidebar.name
@@ -90,9 +90,7 @@
           return window.innerWidth <= layoutSizes.resWidthHideSidebar;
         }
       }
-
     }
-
     this.$get = get;
   }
 })();
