@@ -191,6 +191,6 @@
         email: 'karen@yandex.ru',
         age: '33'
       }
-    ]
+    ];
   }
 })();

@@ -10,7 +10,7 @@
     .run(['$timeout', '$rootScope', 'layoutPaths', 'preloader', '$q', 'baSidebarService', 'themeLayoutSettings', themeRun]);
 
   function config($provide) {
-    $provide.decorator('$uiViewScroll', uiViewScrollDecorator);
+    $provide.decorator('$uiViewScroll', ['$delegate', '$anchorScroll', 'baUtil', uiViewScrollDecorator]);
   }
 
   function uiViewScrollDecorator($delegate, $anchorScroll, baUtil) {
