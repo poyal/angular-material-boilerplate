@@ -11,7 +11,6 @@
     'smart-table',
     "xeditable",
     'ui.slimscroll',
-    'ngJsTree',
     'angular-progress-button-styles',
     'chart.js',
     'angular-chartist',
@@ -21,7 +20,6 @@
     'ngSanitize',
 
     'app.core',
-    // 'app.templates',
     'app.examples'
   ]);
 })();
