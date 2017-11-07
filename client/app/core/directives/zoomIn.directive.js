@@ -14,7 +14,7 @@
     };
 
     function ZoomInLink(scope, elem) {
-      var delay = 1000;
+      var delay = 0;
 
       $timeout(function () {
         elem.removeClass('full-invisible');
