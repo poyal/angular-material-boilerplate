@@ -23,14 +23,7 @@
     };
   }
 
-  function themeRun($timeout, $rootScope, baSidebarService) {
-
-    $timeout(function () {
-      if (!$rootScope.$pageFinishedLoading) {
-        $rootScope.$pageFinishedLoading = true;
-      }
-    }, 1000);
-
+  function themeRun($rootScope, baSidebarService) {
     $rootScope.$baSidebarService = baSidebarService;
   }
 })();
