@@ -7,7 +7,7 @@
   <title>Blur Admin</title>
 
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>-->
 
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
   <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css" />
-  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="bower_components/angular-progress-button-styles/dist/angular-progress-button-styles.min.css" />
   <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css" />
   <link rel="stylesheet" href="bower_components/ionrangeslider/css/ion.rangeSlider.css" />
@@ -65,7 +64,6 @@
 <script src="bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
-<script src="bower_components/leaflet/dist/leaflet-src.js"></script>
 <script src="bower_components/angular-progress-button-styles/dist/angular-progress-button-styles.min.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
@@ -96,11 +94,11 @@
 <script src="app/examples/charts/charts.module.js"></script>
 <script src="app/examples/components/components.module.js"></script>
 <script src="app/examples/dashboard/dashboard.module.js"></script>
-<script src="app/examples/maps/maps.module.js"></script>
 <script src="app/examples/form/form.module.js"></script>
+<script src="app/examples/maps/maps.module.js"></script>
 <script src="app/examples/profile/profile.module.js"></script>
-<script src="app/examples/ui/ui.module.js"></script>
 <script src="app/examples/tables/tables.module.js"></script>
+<script src="app/examples/ui/ui.module.js"></script>
 <script src="app/core/app.config.js"></script>
 <script src="app/core/app.constant.js"></script>
 <script src="app/core/config.route.js"></script>
@@ -131,40 +129,37 @@
 <script src="app/core/components/baPanel/baPanelBlur.directive.js"></script>
 <script src="app/core/components/baPanel/baPanelBlurHelper.service.js"></script>
 <script src="app/core/components/baPanel/baPanelSelf.directive.js"></script>
+<script src="app/core/components/baSwitcher/baSwitcher.directive.js"></script>
 <script src="app/core/components/baSidebar/baSidebar.controller.js"></script>
 <script src="app/core/components/baSidebar/baSidebar.directive.js"></script>
 <script src="app/core/components/baSidebar/baSidebar.provider.js"></script>
-<script src="app/core/components/baSwitcher/baSwitcher.directive.js"></script>
 <script src="app/core/components/baWizard/baWizard.directive.js"></script>
 <script src="app/core/components/baWizard/baWizardStep.directive.js"></script>
 <script src="app/core/components/backTop/backTop.directive.js"></script>
 <script src="app/core/components/contentTop/contentTop.directive.js"></script>
 <script src="app/core/components/msgCenter/msgCenter.directive.js"></script>
 <script src="app/core/components/pageTop/pageTop.directive.js"></script>
-<script src="app/core/components/progressModal/progressModal.controller.js"></script>
 <script src="app/core/components/progressBarRound/progressBarRound.directive.js"></script>
+<script src="app/core/components/progressModal/progressModal.controller.js"></script>
 <script src="app/core/components/widgets/widgets.directive.js"></script>
-<script src="app/examples/charts/chartJs/chartJs.controller.js"></script>
 <script src="app/examples/charts/chartist/chartist.controller.js"></script>
+<script src="app/examples/charts/chartJs/chartJs.controller.js"></script>
 <script src="app/examples/components/core/components.service.js"></script>
 <script src="app/examples/components/core/mailMessages.service.js"></script>
-<script src="app/examples/components/timeline/timeline.controller.js"></script>
 <script src="app/examples/components/mail/mail.controller.js"></script>
-<script src="app/examples/maps/google/google.controller.js"></script>
-<script src="app/examples/maps/bubbles/bubbles.controller.js"></script>
-<script src="app/examples/maps/leaflet/leaflet.controller.js"></script>
-<script src="app/examples/maps/lines/lines.controller.js"></script>
-<script src="app/examples/form/inputs/inputs.controller.js"></script>
+<script src="app/examples/components/timeline/timeline.controller.js"></script>
 <script src="app/examples/form/layouts/layouts.controller.js"></script>
+<script src="app/examples/form/inputs/inputs.controller.js"></script>
 <script src="app/examples/form/wizard/wizrd.controller.js"></script>
+<script src="app/examples/maps/google/google.controller.js"></script>
 <script src="app/examples/profile/components/profileModal.controller.js"></script>
 <script src="app/examples/profile/profile/profile.controller.js"></script>
+<script src="app/examples/tables/smart-table/smartTable.controller.js"></script>
+<script src="app/examples/tables/basic-table/basicTable.controller.js"></script>
 <script src="app/examples/ui/buttons/buttons.controller.js"></script>
 <script src="app/examples/ui/icons/icons.controller.js"></script>
 <script src="app/examples/ui/modals/modals.controller.js"></script>
 <script src="app/examples/ui/notifications/notifications.controller.js"></script>
-<script src="app/examples/tables/basic-table/basicTable.controller.js"></script>
-<script src="app/examples/tables/smart-table/smartTable.controller.js"></script>
 <script src="app/core/components/baSidebar/directive/baSidebarCollapseMenu.directive.js"></script>
 <script src="app/core/components/baSidebar/directive/baSidebarToggleMenu.directive.js"></script>
 <script src="app/core/components/baSidebar/directive/baSidebarTogglingItem.directive.js"></script>

@@ -25,36 +25,6 @@
         sidebarMeta: {
           order: 0
         }
-      })
-      .state('app.examples.maps.leaflet', {
-        url: '/leaflet',
-        templateUrl: 'app/examples/maps/leaflet/leaflet.html',
-        controller: 'leafletController',
-        controllerAs: 'vm',
-        title: 'Leaflet Maps',
-        sidebarMeta: {
-          order: 100
-        }
-      })
-      .state('app.examples.maps.bubble', {
-        url: '/bubble',
-        templateUrl: 'app/examples/maps/bubbles/bubbles.html',
-        controller: 'bubblesController',
-        controllerAs: 'vm',
-        title: 'Bubble Maps',
-        sidebarMeta: {
-          order: 200
-        }
-      })
-      .state('app.examples.maps.lines', {
-        url: '/lines',
-        templateUrl: 'app/examples/maps/lines/lines.html',
-        controller: 'linesController',
-        controllerAs: 'vm',
-        title: 'Line Maps',
-        sidebarMeta: {
-          order: 300
-        }
       });
   }
 })();
