@@ -10,7 +10,6 @@
     var service = this;
 
     service.loadImg = loadImg;
-    service.loadAmCharts = loadAmCharts;
 
     function loadImg(src) {
       var d = $q.defer();
@@ -19,14 +18,6 @@
       img.onload = function () {
         d.resolve();
       };
-      return d.promise;
-    }
-
-    function loadAmCharts() {
-      var d = $q.defer();
-      AmCharts.ready(function () {
-        d.resolve();
-      });
       return d.promise;
     }
   }

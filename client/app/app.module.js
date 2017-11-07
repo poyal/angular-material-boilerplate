@@ -14,7 +14,6 @@
     'angular-progress-button-styles',
     'chart.js',
     'angular-chartist',
-    'angular.morris-chart',
     'textAngular',
     'ui.select',
     'ngSanitize',
